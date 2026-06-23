@@ -1,5 +1,10 @@
 /* ── Supabase client ── */
-const supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+let supabase;
+if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY) {
+  supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+} else {
+  console.error('Supabase config not loaded. Check supabase-config.js');
+}
 
 /* ── State ── */
 let allGrants = [];
