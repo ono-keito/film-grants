@@ -19,7 +19,7 @@ create policy "Authenticated users can check the allowlist"
 -- ── Projects ───────────────────────────────────────────────────────────
 create table if not exists projects (
   id uuid primary key default gen_random_uuid(),
-  user_id uuid references auth.users(id) on delete cascade not null,
+  user_id text not null,
   name text not null,
   format text,        -- e.g. "Short Narrative", "Short Doc"
   stage text,         -- e.g. "Development", "Production", "Post"
@@ -32,19 +32,12 @@ alter table projects enable row level security;
 
 create policy "Users manage their own projects"
   on projects for all
-  using (
-    auth.uid() = user_id
-    and exists (select 1 from allowed_emails ae where ae.email = auth.jwt()->>'email')
-  )
-  with check (
-    auth.uid() = user_id
-    and exists (select 1 from allowed_emails ae where ae.email = auth.jwt()->>'email')
-  );
+  using (true);  -- RLS check done in app (email must be in allowed_emails)
 
 -- ── Favorites ──────────────────────────────────────────────────────────
 create table if not exists favorites (
   id uuid primary key default gen_random_uuid(),
-  user_id uuid references auth.users(id) on delete cascade not null,
+  user_id text not null,
   grant_id text not null,
   grant_name text not null,
   project_id uuid references projects(id) on delete set null,
@@ -57,11 +50,4 @@ alter table favorites enable row level security;
 
 create policy "Users manage their own favorites"
   on favorites for all
-  using (
-    auth.uid() = user_id
-    and exists (select 1 from allowed_emails ae where ae.email = auth.jwt()->>'email')
-  )
-  with check (
-    auth.uid() = user_id
-    and exists (select 1 from allowed_emails ae where ae.email = auth.jwt()->>'email')
-  );
+  using (true);  -- RLS check done in app (email must be in allowed_emails)

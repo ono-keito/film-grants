@@ -1,10 +1,10 @@
 /* ── State ── */
 let sbClient;
 let allGrants = [];
-let currentUser = null;
-let likedIds = new Set();      // grant ids the current user has favorited
-let favoritesById = new Map(); // grant id -> favorites row (id, project_id, note)
-let projects = [];             // current user's projects
+let currentUserEmail = null;
+let likedIds = new Set();
+let favoritesById = new Map();
+let projects = [];
 
 const TODAY = new Date();
 const QUARTERS = ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'];
@@ -22,83 +22,86 @@ window.addEventListener('load', () => {
     console.error('Supabase config not loaded. Check supabase-config.js');
     return;
   }
-  supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
-  init();
+  sbClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+  checkSavedLogin();
 });
 
-async function init() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (session) {
-    await onSignedIn(session.user);
+function checkSavedLogin() {
+  const saved = localStorage.getItem('filmGrantsEmail');
+  if (saved) {
+    currentUserEmail = saved;
+    showApp();
   } else {
     document.getElementById('authGate').style.display = 'flex';
   }
-
-  supabase.auth.onAuthStateChange(async (event, session) => {
-    if (event === 'SIGNED_IN' && session) {
-      await onSignedIn(session.user);
-    } else if (event === 'SIGNED_OUT') {
-      document.getElementById('appRoot').style.display = 'none';
-      document.getElementById('authGate').style.display = 'flex';
-      currentUser = null;
-    }
-  });
 }
 
-async function onSignedIn(user) {
-  // Allowlist check — RLS already blocks unauthorized data access, this just
-  // gives a friendly message instead of a silently empty app.
-  const { data: allowed } = await supabase
-    .from('allowed_emails')
-    .select('email')
-    .eq('email', user.email)
-    .maybeSingle();
+async function onSignIn() {
+  const email = document.getElementById('authEmail').value.trim();
+  const btn = document.getElementById('authSubmit');
+  const status = document.getElementById('authStatus');
 
-  if (!allowed) {
-    document.getElementById('authStatus').textContent =
-      `${user.email} isn't on the access list yet. Ask the admin to add you.`;
-    document.getElementById('authStatus').className = 'auth-status error';
-    await supabase.auth.signOut();
+  if (!email) {
+    status.textContent = 'Please enter an email.';
+    status.className = 'auth-status error';
     return;
   }
 
-  currentUser = user;
+  btn.disabled = true;
+  status.className = 'auth-status';
+  status.textContent = 'Checking access...';
+
+  try {
+    const { data: allowed, error } = await sbClient
+      .from('allowed_emails')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle();
+
+    if (error) throw error;
+
+    if (!allowed) {
+      status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
+      status.className = 'auth-status error';
+      btn.disabled = false;
+      return;
+    }
+
+    currentUserEmail = email;
+    localStorage.setItem('filmGrantsEmail', email);
+    document.getElementById('authEmail').value = '';
+    showApp();
+  } catch (err) {
+    status.textContent = `Error: ${err.message}`;
+    status.className = 'auth-status error';
+    btn.disabled = false;
+  }
+}
+
+function showApp() {
   document.getElementById('authGate').style.display = 'none';
   document.getElementById('appRoot').style.display = 'flex';
-  document.getElementById('sidebarUser').textContent = user.email;
-
-  await loadGrants();
-  await loadFavorites();
-  await loadProjects();
+  document.getElementById('sidebarUser').textContent = currentUserEmail;
+  loadGrants();
+  loadFavorites();
+  loadProjects();
   renderAll();
 }
 
 /* ── Auth form ── */
-document.getElementById('authForm').addEventListener('submit', async (e) => {
+document.getElementById('authForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const email = document.getElementById('authEmail').value.trim();
-  const btn = document.getElementById('authSubmit');
-  const status = document.getElementById('authStatus');
-  btn.disabled = true;
-  status.className = 'auth-status';
-  status.textContent = 'Sending link…';
-
-  const { error } = await supabase.auth.signInWithOtp({
-    email,
-    options: { emailRedirectTo: window.location.href }
-  });
-
-  if (error) {
-    status.textContent = error.message;
-    status.className = 'auth-status error';
-  } else {
-    status.textContent = `Check ${email} for a sign-in link.`;
-    status.className = 'auth-status success';
-  }
-  btn.disabled = false;
+  onSignIn();
 });
 
-document.getElementById('signOutBtn').addEventListener('click', () => supabase.auth.signOut());
+document.getElementById('signOutBtn').addEventListener('click', () => {
+  localStorage.removeItem('filmGrantsEmail');
+  currentUserEmail = null;
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('authGate').style.display = 'flex';
+  document.getElementById('authEmail').value = '';
+  document.getElementById('authStatus').textContent = '';
+});
 
 /* ── Data loading ── */
 async function loadGrants() {
@@ -106,20 +109,20 @@ async function loadGrants() {
 }
 
 async function loadFavorites() {
-  const { data, error } = await supabase
+  const { data, error } = await sbClient
     .from('favorites')
     .select('*')
-    .eq('user_id', currentUser.id);
+    .eq('user_id', currentUserEmail);
   if (error) { console.error(error); return; }
   favoritesById = new Map((data || []).map(f => [f.grant_id, f]));
   likedIds = new Set(favoritesById.keys());
 }
 
 async function loadProjects() {
-  const { data, error } = await supabase
+  const { data, error } = await sbClient
     .from('projects')
     .select('*')
-    .eq('user_id', currentUser.id)
+    .eq('user_id', currentUserEmail)
     .order('created_at', { ascending: true });
   if (error) { console.error(error); return; }
   projects = data || [];
@@ -130,17 +133,17 @@ function updateSidebarMeta() {
     `${allGrants.length} grants tracked · ${likedIds.size} liked`;
 }
 
-/* ── Favorites (server-backed "Like") ── */
+/* ── Favorites ── */
 async function toggleLike(grant) {
   if (likedIds.has(grant.id)) {
     const row = favoritesById.get(grant.id);
-    await supabase.from('favorites').delete().eq('id', row.id);
+    await sbClient.from('favorites').delete().eq('id', row.id);
     favoritesById.delete(grant.id);
     likedIds.delete(grant.id);
   } else {
-    const { data, error } = await supabase
+    const { data, error } = await sbClient
       .from('favorites')
-      .insert({ user_id: currentUser.id, grant_id: grant.id, grant_name: grant.name })
+      .insert({ user_id: currentUserEmail, grant_id: grant.id, grant_name: grant.name })
       .select()
       .single();
     if (error) { console.error(error); return; }
@@ -350,7 +353,7 @@ function renderCurated() {
   bindLikeButtons(wrap);
 }
 
-/* ── Account view: Projects + Favorites ── */
+/* ── Account view ── */
 function renderAccount() {
   const projWrap = document.getElementById('projectsList');
   projWrap.innerHTML = projects.length
@@ -367,7 +370,7 @@ function renderAccount() {
 
   projWrap.querySelectorAll('.remove-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
-      await supabase.from('projects').delete().eq('id', btn.dataset.projectId);
+      await sbClient.from('projects').delete().eq('id', btn.dataset.projectId);
       await loadProjects();
       await loadFavorites();
       renderAll();
@@ -399,7 +402,7 @@ function renderAccount() {
 
   favWrap.querySelectorAll('.fav-project-select').forEach(sel => {
     sel.addEventListener('change', async () => {
-      await supabase.from('favorites').update({ project_id: sel.value || null }).eq('id', sel.dataset.favId);
+      await sbClient.from('favorites').update({ project_id: sel.value || null }).eq('id', sel.dataset.favId);
       await loadFavorites();
       renderAccount();
     });
@@ -423,8 +426,8 @@ document.getElementById('pfCancel').addEventListener('click', () => {
 document.getElementById('pfSave').addEventListener('click', async () => {
   const name = document.getElementById('pfName').value.trim();
   if (!name) return;
-  await supabase.from('projects').insert({
-    user_id: currentUser.id,
+  await sbClient.from('projects').insert({
+    user_id: currentUserEmail,
     name,
     format: document.getElementById('pfFormat').value.trim(),
     stage: document.getElementById('pfStage').value.trim(),
