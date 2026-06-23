@@ -1,12 +1,5 @@
-/* ── Supabase client ── */
-let supabase;
-if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY) {
-  supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
-} else {
-  console.error('Supabase config not loaded. Check supabase-config.js');
-}
-
 /* ── State ── */
+let sbClient;
 let allGrants = [];
 let currentUser = null;
 let likedIds = new Set();      // grant ids the current user has favorited
@@ -24,7 +17,14 @@ function esc(str) {
 }
 
 /* ── Boot ── */
-init();
+window.addEventListener('load', () => {
+  if (!window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
+    console.error('Supabase config not loaded. Check supabase-config.js');
+    return;
+  }
+  supabase = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+  init();
+});
 
 async function init() {
   const { data: { session } } = await supabase.auth.getSession();
