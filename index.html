@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Grants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+
+  <!-- Sign-in gate -->
+  <div class="auth-gate" id="authGate">
+    <div class="auth-card">
+      <div class="wordmark" style="justify-content:center;margin-bottom:18px;">
+        <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
+          <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.9"/>
+          <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+          <rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+          <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.3"/>
+        </svg>
+        <span>Film Grants</span>
+      </div>
+      <p class="auth-subtitle" id="authSubtitle">Sign in with your email to access the grants database. You'll get a one-click link — no password needed.</p>
+      <form id="authForm" class="auth-form">
+        <input type="email" id="authEmail" placeholder="you@example.com" required class="search-input">
+        <button type="submit" id="authSubmit" class="auth-submit">Send sign-in link</button>
+      </form>
+      <p class="auth-status" id="authStatus"></p>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div class="app" id="appRoot" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="wordmark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.9"/>
+            <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+            <rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+            <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.3"/>
+          </svg>
+          <span>Film Grants</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section-label">Navigate</div>
+      <nav class="project-list">
+        <button class="proj-btn nav-btn active" data-view="grants">
+          <span class="proj-emoji">▦</span><span class="proj-name">Grants</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="timeline">
+          <span class="proj-emoji">⟿</span><span class="proj-name">Timeline</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="cards">
+          <span class="proj-emoji">▤</span><span class="proj-name">Cards</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="account">
+          <span class="proj-emoji">☉</span><span class="proj-name">My Account</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-meta" id="sidebarMeta">Loading…</div>
+        <div class="sidebar-user" id="sidebarUser"></div>
+        <button class="signout-btn" id="signOutBtn">Sign out</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+
+      <!-- Grants (searchable database) view -->
+      <div class="view-pane active" id="view-grants">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">Grants</h1>
+            <p class="db-subtitle">Searchable database of curated short film grants</p>
+          </div>
+          <div class="festival-controls">
+            <input type="text" id="grantsSearch" placeholder="Search by name, requirement, or strategy..." class="search-input">
+          </div>
+        </div>
+        <div class="festival-filters">
+          <select id="grantsRegion" class="filter-select">
+            <option value="">All Regions</option>
+            <option value="US">US</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="Japan">Japan</option>
+            <option value="Armenia">Armenia</option>
+          </select>
+          <select id="grantsTimeline" class="filter-select">
+            <option value="">All Deadlines</option>
+            <option value="Jan-Mar">Jan – Mar</option>
+            <option value="Apr-Jun">Apr – Jun</option>
+            <option value="Jul-Sep">Jul – Sep</option>
+            <option value="Oct-Dec">Oct – Dec</option>
+            <option value="Rolling/Annual">Rolling / Annual (TBD)</option>
+          </select>
+          <select id="grantsType" class="filter-select">
+            <option value="">All Project Types</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+          <select id="grantsTheme" class="filter-select">
+            <option value="">All Themes</option>
+            <option value="Women's Story">Women's Story</option>
+            <option value="Coming of Age">Coming of Age</option>
+            <option value="Columbia/Film School">Columbia / Film School</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="Japanese Grant">Japanese Grant</option>
+            <option value="Armenian Grant">Armenian Grant</option>
+          </select>
+          <label class="liked-only-toggle">
+            <input type="checkbox" id="grantsLikedOnly"> ♥ Liked only
+          </label>
+        </div>
+        <div class="table-wrap" id="grantsTableWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading grants...</p></div>
+        </div>
+      </div>
+
+      <!-- Timeline view -->
+      <div class="view-pane" id="view-timeline">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">Timeline</h1>
+            <p class="db-subtitle">Grants grouped by application window — see what's open now vs. closed for this cycle</p>
+          </div>
+        </div>
+        <div class="table-wrap" id="timelineWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading timeline...</p></div>
+        </div>
+      </div>
+
+      <!-- Cards view -->
+      <div class="view-pane" id="view-cards">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">Curated Short Film Grants</h1>
+            <p class="db-subtitle">Region · Timeline · Project Type — focused on women's stories, coming-of-age, Columbia/MFA, Japan, Armenia, and New Jersey</p>
+          </div>
+          <div class="festival-controls">
+            <input type="text" id="curatedSearch" placeholder="Search by name, requirement, or strategy..." class="search-input">
+          </div>
+        </div>
+        <div class="festival-filters">
+          <select id="curatedRegion" class="filter-select">
+            <option value="">All Regions</option>
+            <option value="US">US</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="Japan">Japan</option>
+            <option value="Armenia">Armenia</option>
+          </select>
+          <select id="curatedTimeline" class="filter-select">
+            <option value="">All Deadlines</option>
+            <option value="Jan-Mar">Jan – Mar</option>
+            <option value="Apr-Jun">Apr – Jun</option>
+            <option value="Jul-Sep">Jul – Sep</option>
+            <option value="Oct-Dec">Oct – Dec</option>
+            <option value="Rolling/Annual">Rolling / Annual (TBD)</option>
+          </select>
+          <select id="curatedType" class="filter-select">
+            <option value="">All Project Types</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+          <select id="curatedTheme" class="filter-select">
+            <option value="">All Themes</option>
+            <option value="Women's Story">Women's Story</option>
+            <option value="Coming of Age">Coming of Age</option>
+            <option value="Columbia/Film School">Columbia / Film School</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="Japanese Grant">Japanese Grant</option>
+            <option value="Armenian Grant">Armenian Grant</option>
+          </select>
+          <label class="liked-only-toggle">
+            <input type="checkbox" id="curatedLikedOnly"> ♥ Liked only
+          </label>
+        </div>
+        <div class="table-wrap" id="curatedWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading grants...</p></div>
+        </div>
+      </div>
+
+      <!-- Account view -->
+      <div class="view-pane" id="view-account">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">My Account</h1>
+            <p class="db-subtitle">Your projects and favorited grants — private to you, synced across devices</p>
+          </div>
+        </div>
+        <div class="table-wrap" id="accountWrap">
+          <div class="account-section">
+            <div class="account-section-head">
+              <h2 class="account-section-title">Projects</h2>
+              <button class="new-project-btn" id="newProjectBtn">+ New Project</button>
+            </div>
+            <div id="projectForm" class="project-form" style="display:none;">
+              <input type="text" id="pfName" placeholder="Project name (e.g. Point Pleasant)" class="search-input">
+              <div class="project-form-row">
+                <input type="text" id="pfFormat" placeholder="Format (e.g. Short Narrative)" class="search-input">
+                <input type="text" id="pfStage" placeholder="Stage (e.g. Development)" class="search-input">
+              </div>
+              <div class="project-form-row">
+                <input type="text" id="pfLocation" placeholder="Location" class="search-input">
+              </div>
+              <textarea id="pfNotes" placeholder="Notes" class="search-input" rows="2"></textarea>
+              <div class="project-form-actions">
+                <button id="pfSave" class="auth-submit" style="width:auto;padding:8px 16px;">Save Project</button>
+                <button id="pfCancel" class="signout-btn" style="width:auto;">Cancel</button>
+              </div>
+            </div>
+            <div id="projectsList" class="projects-list"></div>
+          </div>
+
+          <div class="account-section">
+            <h2 class="account-section-title">Favorited Grants</h2>
+            <div id="favoritesList" class="favorites-list"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

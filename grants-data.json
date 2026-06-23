@@ -1,0 +1,1925 @@
+[
+  {
+    "name": "Sundance Institute Ignite x Adobe Fellowship",
+    "link": "https://www.sundance.org/programs/ignite/",
+    "region": "US",
+    "amount": "$5,000 + 1-yr Adobe Creative Cloud",
+    "deadline": "Annual, typically opens winter, due mid-Feb (2026 cycle selected June 15, 2026)",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Completed short (1-15 min, within last 12 months); applicant age 18-25",
+    "previousWinners": "2026 Fellows: Simisolaoluwa Akande, Aicha Cherif, Blake Knecht — sundance.org",
+    "strategy": "Favors emerging voice-driven personal storytelling from young filmmakers (18-25); strong alumni track record into Sundance/Cannes.",
+    "themeTags": [
+      "Coming of Age",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "sundance-institute-ignite-x-adobe-fellowship",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Sundance Institute Documentary Fund / Sandbox Fund",
+    "link": "https://www.sundance.org/programs/documentary-film/",
+    "region": "US",
+    "amount": "$10,000-$50,000 (varies)",
+    "deadline": "Annual, spring cycle (2026 closed April 13)",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Project description, sample work/trailer, budget, director statement",
+    "previousWinners": "sundance.org/blogs/announcing-the-2026-sundance-institute-sandbox-fund-grantees/",
+    "strategy": "Favors science/culture-intersection nonfiction and social-issue documentaries.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "sundance-institute-documentary-fund-sandbox-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "SFFILM Rainin Grant",
+    "link": "https://sffilm.org/rainin-grant/",
+    "region": "US",
+    "amount": "Up to $25,000 + FilmHouse residency access",
+    "deadline": "Annual, spring (2026 closed May 22)",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Script, budget, director's statement; Bay Area connection preferred",
+    "previousWinners": "sffilm.org/rainin-grant/",
+    "strategy": "Favors social justice-themed narrative features benefiting the Bay Area filmmaking community.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "medium",
+    "id": "sffilm-rainin-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Jerome Foundation NYC Film Production Grant",
+    "link": "https://www.jeromefdn.org/new-york-city-film-production-grant",
+    "region": "US",
+    "amount": "Up to $30,000",
+    "deadline": "Annual, next cycle expected fall 2026",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "NYC residency (5 boroughs, 1+ yr), early-career director, project description, work sample",
+    "previousWinners": "18 filmmakers awarded $499,513 in Oct 2025 round — jeromefdn.org/past-grantees",
+    "strategy": "Strongly favors formally experimental, risk-taking early-career NYC filmmakers across narrative, experimental, animation, documentary.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "jerome-foundation-nyc-film-production-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Princess Grace Awards - Film",
+    "link": "https://pgfusa.org/apply/",
+    "region": "US",
+    "amount": "$15,000 unrestricted cash grant",
+    "deadline": "Annual, next cycle expected Feb 2027",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Must be nominated by accredited university/org/media arts center (no self-nomination); reel, project materials",
+    "previousWinners": "pgfusa.org/for-award-winners/",
+    "strategy": "Favors students/recent grads of accredited film programs with strong institutional backing; values craft and artistic promise.",
+    "themeTags": [
+      "Columbia/Film School",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "princess-grace-awards-film",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Princess Grace Special Project Grant",
+    "link": "https://pgfusa.org/specialproject-guidelines-application/",
+    "region": "US",
+    "amount": "Varies",
+    "deadline": "Annual, May 15 (for Sept-Aug grant period)",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Open only to past Princess Grace Award winners",
+    "previousWinners": "Not publicly listed separately",
+    "strategy": "Follow-on funding for past winners only — not a first entry point.",
+    "themeTags": [
+      "Columbia/Film School"
+    ],
+    "confidence": "medium",
+    "id": "princess-grace-special-project-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "NJSCA Individual Artist Fellowship - Film/Video",
+    "link": "https://www.nj.gov/state/njsca/grant-programs.shtml",
+    "region": "US",
+    "amount": "Competitive cash award (program distributed $2M across 198 artists in 2026)",
+    "deadline": "FY27 cycle expected to open late May/early June 2026 (rotating discipline)",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "NJ residency required; anonymous work sample for peer panel review",
+    "previousWinners": "nj.gov/state/press-2026-0210.shtml",
+    "strategy": "Anonymous panel review judged purely on artistic merit — no theme preference, but rotates disciplines so Film/Video isn't offered every year.",
+    "themeTags": [
+      "New Jersey"
+    ],
+    "confidence": "medium",
+    "id": "njsca-individual-artist-fellowship-film-video",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Roy W. Dean Short Film Grant (From the Heart Productions)",
+    "link": "https://fromtheheartproductions.com/roy-w-dean-short-film-grant/",
+    "region": "US",
+    "amount": "$3,000 cash + $15,000 Panavision equipment + $3,000 audio (~$21,000 package)",
+    "deadline": "April 30, 2026 (regular deadline); annual",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "1-page synopsis/outline, first 10 pages of script, prior work sample, budget ≤$500,000",
+    "previousWinners": "Archive at fromtheheartproductions.com",
+    "strategy": "Open to students/emerging filmmakers; favors clear artistic vision with a social-contribution angle. Promoted directly on NJ Motion Picture & TV Commission's opportunities board.",
+    "themeTags": [
+      "New Jersey",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "roy-w-dean-short-film-grant-from-the-heart-productions",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Chicken & Egg Pictures - Research & Development Grant",
+    "link": "https://chickeneggfilms.org/programs/research-and-development-grant",
+    "region": "US",
+    "amount": "Varies ($450K across 29 filmmakers in 2025)",
+    "deadline": "Annual; check site for next open call",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Woman/gender-expansive filmmaker; must have directed ≥1 prior feature documentary; project in R&D stage",
+    "previousWinners": "2025 cohort: 29 filmmakers — variety.com/2025/film/news/chicken-egg-films-documentary-grant-1236501603/",
+    "strategy": "Strongly favors women/gender-expansive nonfiction filmmakers moving from first to subsequent features; values mentorship-readiness.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "chicken-egg-pictures-research-development-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Chicken & Egg Films (Egg)celerator Lab",
+    "link": "https://chickeneggfilms.org/programs/egg-celerator-lab",
+    "region": "US",
+    "amount": "$40,000 + year-long mentorship + creative retreats",
+    "deadline": "Annual (2026 cycle closed April 29)",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "First/second-time director, woman or gender-expansive identifying, feature documentary in production",
+    "previousWinners": "chickeneggfilms.org/news/2026-egg-celerator-lab-grantees-announced",
+    "strategy": "Favors first/second-time women documentary directors 'poised for a breakthrough.'",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "chicken-egg-films-egg-celerator-lab",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Through Her Lens: Tribeca CHANEL Women's Filmmaker Program",
+    "link": "https://tribecafilm.com/throughherlens",
+    "region": "US",
+    "amount": "$120,000 to one winner + $10,000 each to 4 finalists",
+    "deadline": "Annual; application opens spring/summer, workshop in September",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Production-ready script, ≥1 prior directing credit; woman or non-binary screenwriter/director",
+    "previousWinners": "9 years of cohorts — tribecafilm.com/throughherlens/about",
+    "strategy": "Favors women/non-binary directors with a polished, near-production-ready short script and demonstrated directing chops.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "through-her-lens-tribeca-chanel-women-s-filmmaker-program",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "NYSCA/NYFA Artist Fellowship",
+    "link": "https://www.nyfa.org/awards-grants/nysca-nyfa-artist-fellowship/",
+    "region": "US",
+    "amount": "$8,000 unrestricted cash grant",
+    "deadline": "Annual (2026 cycle closed Jan 27); Film/Video category rotates",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "NYS residency (2+ yrs), applicant 25+, work sample (no project proposal needed)",
+    "previousWinners": "Not itemized by discipline",
+    "strategy": "Judged purely on artistic merit of work samples, not pitch; unrestricted use of funds.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "nysca-nyfa-artist-fellowship",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Panavision New Filmmaker Program",
+    "link": "https://www.panavision.com/resources/new-filmmaker-program",
+    "region": "US",
+    "amount": "In-kind camera/equipment package (service fee applies)",
+    "deadline": "Rolling, no fixed deadline",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Locked shoot dates; student thesis/low-budget feature/PSA eligible",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Highly accessible — favors students with confirmed shoot dates; in-kind gear, not cash.",
+    "themeTags": [
+      "Columbia/Film School",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "panavision-new-filmmaker-program",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Cinereach Grants",
+    "link": "https://www.cinereach.org/",
+    "region": "US",
+    "amount": "$5,000-$50,000",
+    "deadline": "Letter of inquiry: June 1 and December 1 annually",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Letter of inquiry first, then invited full proposal",
+    "previousWinners": "Not publicly itemized",
+    "strategy": "Favors socially engaged, artist-driven storytelling; invitation-only nature makes cold applications harder.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "cinereach-grants",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Student Academy Awards (AMPAS)",
+    "link": "https://www.oscars.org/saa",
+    "region": "US",
+    "amount": "Gold $5,000 / Silver $3,000 / Bronze $2,000",
+    "deadline": "Annual (2026 cycle closed Oct 6, 2025), ceremony each September",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Director enrolled post-secondary student; film completed for final course credit; ≤40 min; one submission per student/year",
+    "previousWinners": "oscars.org/saa",
+    "strategy": "Favors thesis/capstone-level student films with strong production values across Narrative, Documentary, Animation, Alternative/Experimental.",
+    "themeTags": [
+      "Columbia/Film School",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "student-academy-awards-ampas",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Black Public Media - PitchBLACK / Documentary Lab Incubator",
+    "link": "https://blackpublicmedia.org/for-media-makers/",
+    "region": "US",
+    "amount": "Up to $150,000 pitched at annual PitchBLACK Forum",
+    "deadline": "Annual; check site for current call",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "3-month Incubator participation, pitch development",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors Black documentary filmmakers and creative technologists telling stories of the global Black experience.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "black-public-media-pitchblack-documentary-lab-incubator",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "NALIP Director Incubator (Netflix-sponsored)",
+    "link": "https://www.nalip.org/programs",
+    "region": "US",
+    "amount": "Production grant + mentorship (amount unspecified)",
+    "deadline": "Returning summer 2026",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Latino/Latina identifying filmmaker; project told from women/gender-expansive perspective; short film stage",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors emerging Latino filmmakers telling women/gender-expansive-centered short film stories.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "nalip-director-incubator-netflix-sponsored",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Film Independent Imaginar Producers Residency (NALIP/Disney/Searchlight)",
+    "link": "https://www.nalip.org/programs",
+    "region": "US",
+    "amount": "$50,000 per Fellow",
+    "deadline": "Annual; check site",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Latinx producer status, project in development",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors Latinx producers (not director-specific); studio-backed.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "film-independent-imaginar-producers-residency-nalip-disney-searchlight",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "LEF Foundation Moving Image Fund",
+    "link": "https://lef-foundation.org/moving-image-fund/",
+    "region": "US",
+    "amount": "$2,500-$25,000 by stage",
+    "deadline": "2026: LOI Jan 16, full application April 2",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Director/producer must reside in New England (CT/ME/MA/NH/RI/VT); film must be 40+ min",
+    "previousWinners": "lef-foundation.org",
+    "strategy": "New England residency required — not eligible for NYC/NJ unless relocated; favors feature-length docs, not shorts.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "lef-foundation-moving-image-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Points North Fellowship (Camden Intl Film Festival)",
+    "link": "https://pointsnorthinstitute.org/artist-programs/points-north-fellowship/",
+    "region": "US",
+    "amount": "Funding + mentorship, ~6 teams/cohort",
+    "deadline": "Annual; 2026 date unconfirmed — check site",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Early-to-mid-career team, feature-length documentary",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors feature docs, not shorts; mentorship-heavy, cohort-based.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "points-north-fellowship-camden-intl-film-festival",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "IF/Then Shorts (Tribeca Film Institute / MacArthur Foundation)",
+    "link": "https://www.tfiny.org/program/detail/ifthen-short-documentary-program",
+    "region": "US",
+    "amount": "Varies",
+    "deadline": "Rolling/varies — check tfiny.org",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Short documentary project, socially/politically relevant themes",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors inclusive voices and underrepresented storytellers in short-form documentary.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "if-then-shorts-tribeca-film-institute-macarthur-foundation",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Brown Girls Doc Mafia - Sustainable Artist Grant",
+    "link": "https://browngirlsdocmafia.org/",
+    "region": "US",
+    "amount": "Varies ($105,000 across 11 filmmakers, recent round)",
+    "deadline": "Annual; check site",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "BGDM member; BIPOC woman/non-binary filmmaker",
+    "previousWinners": "11 filmmakers in most recent round — browngirlsdocmafia.org",
+    "strategy": "Favors BIPOC women/non-binary documentary filmmakers with community engagement and artistic clarity.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "medium",
+    "id": "brown-girls-doc-mafia-sustainable-artist-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Montclair Film - Mark Urman Award (Future/Now Competition)",
+    "link": "https://www.montclairfilm.org/support/mark-urman-award-fund/",
+    "region": "US",
+    "amount": "Cash award (endowment-funded, amount unspecified)",
+    "deadline": "Tied to annual Montclair Film Festival",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Film must be selected into Future/Now Competition lineup (5 films) at Montclair Film Festival",
+    "previousWinners": "Not itemized",
+    "strategy": "NJ-based festival award encouraging emerging filmmaker careers post-completion.",
+    "themeTags": [
+      "New Jersey",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "montclair-film-mark-urman-award-future-now-competition",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Athena Film Festival - Sloan Athena List Development Grant",
+    "link": "https://athenafilmfestival.com/",
+    "region": "US",
+    "amount": "$20,000",
+    "deadline": "Annual, tied to March festival at Barnard College",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Unproduced screenplay focused on a woman in a STEM-themed story; must be finalist/winner of the Athena List",
+    "previousWinners": "athenafilmfestival.com/2026-athena-film-festival-at-barnard-college-unveils-awardees",
+    "strategy": "Niche but real fit for women-in-STEM narratives; housed at Barnard/Columbia-adjacent campus.",
+    "themeTags": [
+      "Women's Story",
+      "Columbia/Film School"
+    ],
+    "confidence": "medium",
+    "id": "athena-film-festival-sloan-athena-list-development-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Athena Film Festival - Breakthrough Award",
+    "link": "https://athenafilmfestival.com/",
+    "region": "US",
+    "amount": "$25,000",
+    "deadline": "Annual, March festival cycle",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Feature by first/second-time director, no US theatrical distribution deal yet, must be selected into festival",
+    "previousWinners": "'Cutting Through Rocks' — 2026 award winner (hollywoodreporter.com)",
+    "strategy": "Favors first/second-time women directors' woman-centered features without existing distribution.",
+    "themeTags": [
+      "Women's Story"
+    ],
+    "confidence": "medium",
+    "id": "athena-film-festival-breakthrough-award",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Women in Film & Video DC - Narrative Short Film Finishing Grant",
+    "link": "https://www.wifv.org/wifv-short-narrative-film-finishing-grant/",
+    "region": "US",
+    "amount": "Finishing grant tier (amount unspecified)",
+    "deadline": "August 17, 2026, 5:00pm; annual",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "WIFV membership required; short ≤15 min including credits; post-production stage",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Membership-gated; favors WIFV-DC-affiliated women filmmakers needing finishing funds.",
+    "themeTags": [
+      "Women's Story"
+    ],
+    "confidence": "medium",
+    "id": "women-in-film-video-dc-narrative-short-film-finishing-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Catapult Film Fund - Development Grant",
+    "link": "https://catapultfilmfund.org/how-to-apply/development/",
+    "region": "US",
+    "amount": "Up to $25,000 (15 grants in 2026)",
+    "deadline": "2026: Step 1 March 23 - April 20",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Two-step application; documentary feature or short in development",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors social-issue and character-driven documentary development, features and shorts.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "catapult-film-fund-development-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Catapult Film Fund - Research Grant",
+    "link": "https://catapultfilmfund.org/how-to-apply/research/",
+    "region": "US",
+    "amount": "$10,000 + mentorship",
+    "deadline": "2026: Step 1 Jan 7 - Feb 2",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "US-based filmmaker, very early concept phase of documentary feature or short",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors very early-stage concept development with strong mentorship component.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "catapult-film-fund-research-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "ITVS Open Call",
+    "link": "https://itvs.org/funds/open-call/",
+    "region": "US",
+    "amount": "Up to $400,000 (co-production; varies widely)",
+    "deadline": "Two rounds annually: mid-January, early August",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Already in production (WIP sample required); US citizen/legal resident producer; 10-90 min",
+    "previousWinners": "Not itemized",
+    "strategy": "Highly competitive (1-2% acceptance); favors broadcast-ready nonfiction with clear PBS/public media fit.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "itvs-open-call",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Pandora Short Film Grant",
+    "link": "https://pandora.org/",
+    "region": "US",
+    "amount": "$12,000 (winner); $30,000 total package incl. 3 finalists",
+    "deadline": "Late deadline Nov 15, 2026; reopens late summer 2026",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Post-Production"
+    ],
+    "requirements": "US citizen/permanent resident (no visa holders); early-career (no feature over $250K budget or TV credits); script or in-progress short eligible",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors early-career narrative short filmmakers; accepts both script-stage and finishing-funds applicants.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "pandora-short-film-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "The Film Fund - Narrative/Documentary Short Film Grant",
+    "link": "https://www.thefilmfund.co/",
+    "region": "US",
+    "amount": "Up to $10,000",
+    "deadline": "Conflicting info (Mar 3 vs Jun 2, 2026) — verify on site; multiple rounds annually",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "One-sentence pitch on premise/use of funds; film under 15 min; production insurance naming The Film Fund LLC additional insured",
+    "previousWinners": "Not itemized",
+    "strategy": "Low-barrier concept-pitch format; favors strong concept clarity over polished packages; winners keep full creative control.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "the-film-fund-narrative-documentary-short-film-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Sofia Coppola Short Film Award (Decentralized Pictures)",
+    "link": "https://www.decentralized.pictures/",
+    "region": "US",
+    "amount": "$20,000 + mentorship from Sofia Coppola + DCP+ distribution",
+    "deadline": "2026: submissions April 30 - June 30",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Short video sample of voice/style, one-page project description, $25 registration fee, peer community review",
+    "previousWinners": "Newly launched program, no listed winners yet",
+    "strategy": "Favors distinctive visual voice and originality as judged by peer community and Sofia Coppola personally.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "medium",
+    "id": "sofia-coppola-short-film-award-decentralized-pictures",
+    "applicationFee": "$25 registration fee"
+  },
+  {
+    "name": "Eurimages Gender Equality Funding Bonus",
+    "link": "https://www.coe.int/en/web/eurimages/gender-equality",
+    "region": "Europe",
+    "amount": "Bonus up to +25% of total project budget",
+    "deadline": "Applied within standard Eurimages co-production rounds (rolling)",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Woman/co-directed project; standard Eurimages feature-length (70+ min) co-production eligibility",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Rewards women-directed projects with higher support ceiling — feature-length co-productions only, not standalone shorts.",
+    "themeTags": [
+      "Women's Story"
+    ],
+    "confidence": "high",
+    "id": "eurimages-gender-equality-funding-bonus",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Eurimages Audentia Award",
+    "link": "https://www.coe.int/en/web/eurimages/gender-equality",
+    "region": "Europe",
+    "amount": "€30,000 prize",
+    "deadline": "Annual, presented at rotating partner festivals",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Best Female Director recognition prize, awarded to completed/festival-selected films",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Recognition award for women directors, not a submission-based development fund.",
+    "themeTags": [
+      "Women's Story"
+    ],
+    "confidence": "high",
+    "id": "eurimages-audentia-award",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "European Short Pitch (ESP)",
+    "link": "https://www.europeanshortpitch.org/",
+    "region": "Europe",
+    "amount": "Cash/in-kind prizes vary; €700 participation fee",
+    "deadline": "Annual, autumn opening — watch for 2027 cycle",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Young European filmmakers/directors with short film project at script stage; co-funded by Creative Europe MEDIA",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strong fit for MFA students — explicitly targets emerging/young filmmakers with workshop + pitch forum + cash prizes.",
+    "themeTags": [
+      "General",
+      "Coming of Age"
+    ],
+    "confidence": "high",
+    "id": "european-short-pitch-esp",
+    "applicationFee": "€700 program participation fee (charged after selection, not a submission fee)"
+  },
+  {
+    "name": "CNC Aide avant réalisation aux films de court métrage",
+    "link": "https://www.cnc.fr/professionnels/aides-et-financements/court-metrage/production/aide-avant-realisation-a-la-production-de-films-de-court-metrage_191116",
+    "region": "Europe",
+    "amount": "Varies by commission decision",
+    "deadline": "Multiple sessions annually — check cnc.fr",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Generally requires French production company attached; favors new/emerging authors and first films",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Designed to promote renewal of creation among new authors and first films — favorable for emerging filmmakers, but requires a French producing partner.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "cnc-aide-avant-r-alisation-aux-films-de-court-m-trage",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "CNC Aide après réalisation aux films de court métrage",
+    "link": "https://www.cnc.fr/professionnels/aides-et-financements/court-metrage/production/aide-apres-realisation-aux-films-de-court-metrage_191028",
+    "region": "Europe",
+    "amount": "Varies by commission decision",
+    "deadline": "Multiple sessions annually — check cnc.fr",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Awarded jointly to production company and filmmaker for completed shorts of artistic quality; requires French producer",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Rewards completed films of artistic merit — useful for finishing a film with a French co-producer attached.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "cnc-aide-apr-s-r-alisation-aux-films-de-court-m-trage",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "CNC Aide à l'écriture (court métrage)",
+    "link": "https://www.cnc.fr/professionnels/aides-et-financements/court-metrage/secteur-court-metrage",
+    "region": "Europe",
+    "amount": "€20,000 fixed",
+    "deadline": "Annual sessions — check cnc.fr",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Supports one author or two co-authors at a distinct career moment; typically requires prior short film track record",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Career-stage support rather than project-specific — good for filmmakers with at least one prior credit.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "cnc-aide-l-criture-court-m-trage",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "BFI NETWORK England Short Film Fund",
+    "link": "https://www.bfi.org.uk/get-funding-support/bfi-network/bfi-network-england-short-film-funding",
+    "region": "Europe",
+    "amount": "£5,000-£25,000",
+    "deadline": "Periodic rounds; last closed Mar 18, 2026, next expected spring 2027",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Early-career filmmakers (director/producer team of ≥2); up to 15 min; reasonable proportion early-career cast/crew",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Extremely competitive (~3% success rate); requires UK-based eligibility (residency/visa considerations for international students).",
+    "themeTags": [
+      "General",
+      "Coming of Age"
+    ],
+    "confidence": "high",
+    "id": "bfi-network-england-short-film-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "FFA German Federal Film Board - Short Film Funding",
+    "link": "https://www.ffa.de/funding.html",
+    "region": "Europe",
+    "amount": "Up to €40,000",
+    "deadline": "Twice yearly, typically July and September sessions",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Experimental"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Film up to 30 minutes; significant German cultural influence/connection required",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Favors artistically ambitious shorts with a German production/creative tie.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "ffa-german-federal-film-board-short-film-funding",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Medienboard Berlin-Brandenburg Film Funding",
+    "link": "https://www.medienboard.de/en/funding/film",
+    "region": "Europe",
+    "amount": "Part of ~€35M annual regional fund; per-project amount not fixed",
+    "deadline": "Committee rounds: Oct 14, 2025 and Feb 10, 2026 sessions — check for next",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Regional (Berlin-Brandenburg) production/creative nexus typically required; graduation/short films explicitly eligible",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strong fit for film students studying or shooting in Berlin/Brandenburg.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "medienboard-berlin-brandenburg-film-funding",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Austrian Film Institute (ÖFI) Short Film / Talent LAB",
+    "link": "https://filminstitut.at/foerderportal",
+    "region": "Europe",
+    "amount": "Not publicly fixed; varies by project commission",
+    "deadline": "Rolling online portal; Talent LAB consultation deadline May 20, 2026 last cycle",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Experimental"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Supports screenplay/project development/production for short fiction, documentary, animation, experimental",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Explicit talent-development mandate for young/emerging filmmakers.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "austrian-film-institute-fi-short-film-talent-lab",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Czech Audiovisual Fund - Short/Experimental Category",
+    "link": "https://sfa.gov.cz/film-funding",
+    "region": "Europe",
+    "amount": "Not specified; varies by category",
+    "deadline": "Rebranded scheme effective Jan 1, 2026 — check sfa.gov.cz",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Experimental"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Category 1 covers feature-length and short/experimental projects",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Newly restructured fund (2026) — monitor for clearer short-film-specific calls.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "czech-audiovisual-fund-short-experimental-category",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Czech Regional Fund - Pilsen Region Short/Animated Film Grant",
+    "link": "https://www.filmcommission.cz/en/grants-and-funds/",
+    "region": "Europe",
+    "amount": "Not specified",
+    "deadline": "Jan 16 - Apr 30, 2026 annual window",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Animation"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Short/animated films up to 59 min; regional production tie likely required",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Smaller regional fund, easier competition pool.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "czech-regional-fund-pilsen-region-short-animated-film-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Czech Regional Fund - Zlín Region Short Film Grant",
+    "link": "https://www.filmcommission.cz/en/grants-and-funds/",
+    "region": "Europe",
+    "amount": "Not specified",
+    "deadline": "Jan 19 - Mar 20, 2026 annual window",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Animation"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Regional tie likely required",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Smaller regional fund.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "czech-regional-fund-zl-n-region-short-film-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Netherlands Film Fund - Film Fund Shorts",
+    "link": "https://www.filmfonds.nl/en/funding/shorts",
+    "region": "Europe",
+    "amount": "Up to €65,000 production + up to €2,500 production coach",
+    "deadline": "Multiple rounds annually — check filmfonds.nl",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Original, authentic shorts by starting/experienced directors; must apply jointly with a producer; completes within 12 months in NL",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Favors strong authorial vision and 'urgent' storytelling; requires Dutch producer attachment.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "netherlands-film-fund-film-fund-shorts",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Polish Film Institute (PISF) - Short Film Production Support",
+    "link": "https://pisf.pl/en/produkcja-filmowa/",
+    "region": "Europe",
+    "amount": "Varies by operational program priority",
+    "deadline": "Annual operational cycles via PISF portal — check pisf.pl",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Supports script development, project development, production; animation-specific priority track",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Likely requires Polish production company partnership.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "polish-film-institute-pisf-short-film-production-support",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "ICAA Ayudas a la producción de cortometrajes sobre proyecto (Spain)",
+    "link": "https://www.cultura.gob.es/cultura/areas/cine/ayudas/produccion/cortometrajes-sobre-proyecto.html",
+    "region": "Europe",
+    "amount": "Total line €2.2M (2026); public funding ≤85% of recognized costs",
+    "deadline": "2026 deadline was April 24 — annual, typically spring",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Independent Spanish production company required",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Requires Spanish production company; script-stage support.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "icaa-ayudas-a-la-producci-n-de-cortometrajes-sobre-proyecto-spain",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "ICAA Ayudas a la producción de cortometrajes realizados (Spain)",
+    "link": "https://www.cultura.gob.es/cultura/areas/cine/ayudas/produccion/cortometrajes-realizados.html",
+    "region": "Europe",
+    "amount": "Total line €800K; max €70,000/project (€130,000 for animation)",
+    "deadline": "2026 deadline was April 7 — annual, typically spring",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Animation",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Independent Spanish production company required; compatible with project-stage line above",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strong, well-funded scheme; requires Spanish producer.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "icaa-ayudas-a-la-producci-n-de-cortometrajes-realizados-spain",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Cannes La Cinef (Cinéfondation Selection)",
+    "link": "https://www.festival-cannes.com/en/take-part/submit-a-film/la-cinef-rules-and-regulations/",
+    "region": "Europe",
+    "amount": "No cash grant — festival selection/prestige + historical prizes",
+    "deadline": "Annual, typically mid-February (2026 was Feb 15)",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Animation"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Film must be directed by a student within their film school curriculum, made within 18 months preceding the festival, not shown at major festivals before",
+    "previousWinners": "15-20 films selected annually from ~2,750 submissions",
+    "strategy": "Premier showcase for MFA film students — ideal target given the user's MFA context, prestige rather than direct funding.",
+    "themeTags": [
+      "General",
+      "Coming of Age"
+    ],
+    "confidence": "high",
+    "id": "cannes-la-cinef-cin-fondation-selection",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Berlinale Talents (incl. Dream Makers contest)",
+    "link": "https://www.berlinale-talents.de/bt/page/c/apply",
+    "region": "Europe",
+    "amount": "Dream Makers winner reported up to €250,000 production funding (verify current-year terms)",
+    "deadline": "Annual; Talents Lab applications open ahead of February Berlinale",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Animation",
+      "Experimental"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Talents Lab: selected international talents; Dream Makers: short film contest sponsored by CUPRA/Studio Babelsberg, terms vary by year",
+    "previousWinners": "Not publicly listed for current cycle",
+    "strategy": "High prestige, very competitive, requires strong existing portfolio for Talents Lab selection.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "berlinale-talents-incl-dream-makers-contest",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "EWA Network - Career Programs (Berlin Scriptwriter's Residency, Women Producers Mentoring)",
+    "link": "https://www.ewawomen.com/film-industry-training/",
+    "region": "Europe",
+    "amount": "Not a direct cash grant for shorts (mentorship/networking; related programs may grant up to €5,000 for series producers)",
+    "deadline": "Rolling/annual calls — check ewawomen.com",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "EWA Network membership required; aimed at women in European audiovisual industry",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Networking/mentorship resource rather than a direct project cash grant for shorts.",
+    "themeTags": [
+      "Women's Story"
+    ],
+    "confidence": "low",
+    "id": "ewa-network-career-programs-berlin-scriptwriter-s-residency-women-producers-mentoring",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "PFF Scholarship (Pia Film Festival)",
+    "link": "https://pff.jp/english/scholarship.html",
+    "region": "Japan",
+    "amount": "Not publicly disclosed (full production financing package)",
+    "deadline": "Only open to that year's PFF Award winners; PFF Award entry typically spring",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Must first win the PFF Award (open international/domestic submission for short/medium-length works by emerging directors), then present a new script/plan",
+    "previousWinners": "Many notable Japanese directors got their start this way",
+    "strategy": "Favors distinctive directorial voice and strong scriptwriting potential demonstrated via the PFF Award short.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "medium",
+    "id": "pff-scholarship-pia-film-festival",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Agency for Cultural Affairs (Bunka-cho) Film Production Support",
+    "link": "https://www.bunka.go.jp/english/policy/arts_culture/",
+    "region": "Japan",
+    "amount": "Not specified publicly; varies by project scale",
+    "deadline": "Annual, per fiscal year (April-based) — check bunka.go.jp",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Animation"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Supports Japanese film production planning through completion; eligibility for non-Japanese/student applicants unclear",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Tends to favor projects with clear cultural/artistic merit and Japanese industry involvement.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "agency-for-cultural-affairs-bunka-cho-film-production-support",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Agency for Cultural Affairs - Film Frontier Global Networking Program",
+    "link": "https://www.bunka.go.jp/english/",
+    "region": "Japan",
+    "amount": "Not disclosed (mentorship/networking support, not cash grant)",
+    "deadline": "Annual; check for new cycles",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "For young/emerging Japanese filmmakers; selected via open call; connects with international markets/mentors",
+    "previousWinners": "Kawawada Ema, Hasei Koki, Ohta Shingo, Nakanishi Mai (first cohort, per Variety)",
+    "strategy": "Favors filmmakers ready to present work internationally; likely Japanese-nationality/residency restricted.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "agency-for-cultural-affairs-film-frontier-global-networking-program",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Kodansha Cinema Creators' Lab (with SSFF & Asia)",
+    "link": "https://www.shortshorts.org/kccl/en/3/guideline/",
+    "region": "Japan",
+    "amount": "Production budget up to ¥30,000,000 (~$200K) + ¥3,000,000 prize",
+    "deadline": "Recurring annual, prior cycle Nov 30 deadline — check shortshorts.org",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Open worldwide; shorts max 25 minutes; pitch + CV + synopsis; original works or Kodansha adaptations",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Favors globally accessible, high-concept pitches; works well for adaptation-minded or visually distinct concepts. Explicitly open to international applicants.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "kodansha-cinema-creators-lab-with-ssff-asia",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Short Shorts Film Festival & Asia - Call for Entries",
+    "link": "https://www.shortshorts.org/2026/en/",
+    "region": "Japan",
+    "amount": "Prize amounts vary by category; Academy-qualifying for Live Action, Non-Fiction, Animation",
+    "deadline": "2026 edition: early Sep 30, regular Nov 30, final Jan 11 2027",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Open to Japan and overseas filmmakers; U-25 category requires Japan residency",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Academy Award-qualifying status — valuable for festival strategy, not direct funding.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "short-shorts-film-festival-asia-call-for-entries",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Image Forum Festival - East Asian Experimental Competition",
+    "link": "https://www.imageforumfestival.com/2026/en/bosyu/yoko/",
+    "region": "Japan",
+    "amount": "Grand Prize ¥300,000; Terayama Shuji Prize ¥100,000; Excellence Prizes ¥30,000 each",
+    "deadline": "Annual, typically around April",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Open to filmmakers from Japan, South Korea, Mainland China, Hong Kong, Macau, Taiwan; experimental/avant-garde works",
+    "previousWinners": "Records on imageforumfestival.com",
+    "strategy": "Strongly favors formally experimental, non-narrative or hybrid work over conventional narrative shorts.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "image-forum-festival-east-asian-experimental-competition",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "SKIP City International D-Cinema Festival - Competition Award",
+    "link": "https://www.skipcity-dcf.jp/2025/en/",
+    "region": "Japan",
+    "amount": "¥500,000 + free facility access",
+    "deadline": "Annual, festival held in July",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "As of 2025, Competition section restricted to Japanese filmmakers only — no longer internationally open",
+    "previousWinners": "'Together Up There' (dir. Hiroyuki Seki, 2025)",
+    "strategy": "Important caveat: now restricted to Japanese nationals, limiting eligibility for international/non-Japanese MFA students.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "skip-city-international-d-cinema-festival-competition-award",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Yamagata International Documentary Film Festival - New Asian Currents",
+    "link": "https://www.yidff.jp/2025/2025-e.html",
+    "region": "Japan",
+    "amount": "Flaherty Prize (Grand Prize) ¥2,000,000; New Asian Currents categories separate",
+    "deadline": "Biennial (odd years); 2025 entries closed May 15 for New Asian Currents",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "New Asian Currents accepts short and full-length documentaries from Asia",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Favors social-issue, observational, formally innovative Asian documentary; biennial, next edition 2027.",
+    "themeTags": [
+      "Japanese Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "yamagata-international-documentary-film-festival-new-asian-currents",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Asian Cinema Fund (ACF) - Script Development Fund",
+    "link": "https://acf.biff.kr/eng/addon/10000001/page.asp?page_num=8719",
+    "region": "Asia",
+    "amount": "10,000,000 KRW (~$7,300)",
+    "deadline": "2026 cycle: Mar 23 - Apr 13 (closed); recurring annually via BIFF",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Director's first/second feature; Asian nationality (Korean nationals excluded); must have directed ≥1 prior short/feature",
+    "previousWinners": "2025 cycle awarded 3 projects",
+    "strategy": "Feature-length only, not short film; relevant mainly as a pipeline/next-step fund for MFA grads with strong regional specificity required.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "asian-cinema-fund-acf-script-development-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Asian Cinema Fund (ACF) - Asian Network of Documentary (AND) Fund",
+    "link": "https://acf.biff.kr/eng/",
+    "region": "Asia",
+    "amount": "Not specified; multiple projects funded per cycle",
+    "deadline": "Annual, aligned with BIFF cycle (spring window)",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Feature-length documentary projects from Asian filmmakers; 2025 cycle selected 7 projects",
+    "previousWinners": "Not itemized",
+    "strategy": "Favors inventive documentary form and compelling, urgent subject matter; feature-length focus.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "asian-cinema-fund-acf-asian-network-of-documentary-and-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Asian Short Film Fund (Hong Kong International Film Festival)",
+    "link": "https://industry.hkiff.org.hk/asff",
+    "region": "Asia",
+    "amount": "Up to US$35,000 (3 projects funded)",
+    "deadline": "2026 cycle: April 10 - June 5",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Aspiring directors/producers from Asia; shortlisted applicants pitch virtually; mentorship from established Asian filmmakers + HKIFF showcase",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strongly favors short film proposals with a clear pitch and mentor-ready concept — explicitly built for shorts, rare among Asia-wide funds.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "asian-short-film-fund-hong-kong-international-film-festival",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "SGIFF Southeast Asian Short Film Grant (SEA-SHORTS)",
+    "link": "https://sgiff.com/sgiff-film-fund/",
+    "region": "Asia",
+    "amount": "S$5,000 cash per project (3 funded) + post-production support",
+    "deadline": "Annual, tied to SGIFF Film Fund cycle",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Director must be Southeast Asian citizen/resident; film shot in or connected to Southeast Asia",
+    "previousWinners": "2025: part of S$125,000 across 7 projects",
+    "strategy": "Restricted to Southeast Asian citizens/residents — not open to all Asian or international MFA students.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "sgiff-southeast-asian-short-film-grant-sea-shorts",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "SGIFF Southeast Asian Documentary Grant (SEA-DOC)",
+    "link": "https://filmacademy.sgiff.com/filmfund/seadoc/",
+    "region": "Asia",
+    "amount": "S$30,000 each for 3 production grants; S$20,000 for 1 post-production grant",
+    "deadline": "Annual, tied to SGIFF cycle",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Southeast Asian citizen with completed prior short; mid/feature-length docs",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Favors urgent, socially engaged documentary storytelling; SEA-citizen restricted.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "high",
+    "id": "sgiff-southeast-asian-documentary-grant-sea-doc",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Hong Kong Arts Development Council - Project Grant",
+    "link": "https://www.hkadc.org.hk/en/grants-and-scholarship/grants/project-grant",
+    "region": "Asia",
+    "amount": "Not specified; varies by project",
+    "deadline": "Rolling/periodic; Year Grant 2026/27 closed Jan 30",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Likely requires HK residency/registration; international eligibility unconfirmed",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Eligibility for non-HK-resident international students unconfirmed — include cautiously.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "hong-kong-arts-development-council-project-grant",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Julia S. Gouw Short Film Challenge (CAPE x Janet Yang Productions)",
+    "link": "https://www.capeusa.org/short-film-challenge",
+    "region": "Asia",
+    "amount": "$25,000 per grantee (4 grantees per cycle)",
+    "deadline": "2025-2026 cycle marks 5-year milestone — check capeusa.org",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Asian/Pacific Islander women and non-binary filmmakers (diaspora-inclusive; likely US/API-diaspora focused rather than Asia-resident)",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strongly favors personal, identity-driven storytelling from API women/non-binary creators.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "julia-s-gouw-short-film-challenge-cape-x-janet-yang-productions",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "The Future of Film is Female - Short Film Fund",
+    "link": "https://www.futureoffilmisfemale.com/submit",
+    "region": "Asia",
+    "amount": "$4,000 (Spring 2025 cycle) + in-kind post-production services",
+    "deadline": "Twice annually (Spring/Fall) — check futureoffilmisfemale.com",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Open to women and non-binary filmmakers worldwide",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Global fund genuinely open to applicants based in Asia; favors early-stage projects with strong directorial vision.",
+    "themeTags": [
+      "Women's Story",
+      "General"
+    ],
+    "confidence": "medium",
+    "id": "the-future-of-film-is-female-short-film-fund",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "National Cinema Center of Armenia (NCC) - Co-Financing Competitions",
+    "link": "https://ncca.am/en",
+    "region": "Armenia",
+    "amount": "Not publicly specified; varies by project category",
+    "deadline": "Annual, twice a year (spring and autumn calls)",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Armenian production company or co-production structure typically required",
+    "previousWinners": "Not publicly listed",
+    "strategy": "State funding body prioritizing Armenian-produced/co-produced projects; stated interest in debut works by young directors.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "national-cinema-center-of-armenia-ncc-co-financing-competitions",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "GAIFF Pro - Golden Apricot Industry Platform",
+    "link": "http://gaiff.am/about",
+    "region": "Armenia",
+    "amount": "Not specified; pitching/mentorship access, some editions include project awards",
+    "deadline": "Annual, tied to Golden Apricot Yerevan Intl Film Festival (typically July)",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Documentary",
+      "Fiction",
+      "Hybrid",
+      "Animation"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Open to Western Asian and international filmmakers with projects in development/work-in-progress; selection via pitching submission",
+    "previousWinners": "Cineuropa reported Georgia, Turkey, and Armenia projects winning awards at a past edition",
+    "strategy": "Regional (Western Asia/Caucasus) focus; strong fit for documentary/fiction with regional or Armenian cultural specificity.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "gaiff-pro-golden-apricot-industry-platform",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Creative Armenia-AGBU Fellowships",
+    "link": "https://www.creativearmenia.org/creative-armenia-agbu-fellowships",
+    "region": "Armenia",
+    "amount": "$5,000 grant per fellow",
+    "deadline": "Nov 9, 2025 (2026 cohort); recurring annual cycle",
+    "timeline": "Oct-Dec",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Demonstrated track record of creative achievement and potential for global success; 5 fellows selected/year; includes 1 year mentorship",
+    "previousWinners": "2026 cohort incl. filmmakers Ophelia Harutyunyan (shown at Venice, Sundance, SXSW) and Garush Melkonyan; 38 alumni since inception",
+    "strategy": "Favors applicants with an existing professional track record and a clear plan for international visibility; strong Armenian cultural-ambassador framing.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "creative-armenia-agbu-fellowships",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Creative Armenia - Spark Grants",
+    "link": "https://www.creativearmenia.org/sparkgrants",
+    "region": "Armenia",
+    "amount": "Per-grant amount unspecified; cumulative $100K+ across 60+ grants",
+    "deadline": "Annual call, historically opens around May",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Projects evaluated on being 'powerful' (artistic vision), 'practical' (execution plan), 'impactful' (marketing/release strategy)",
+    "previousWinners": "2021 round: 18 Spark Grants awarded (Armenian Weekly)",
+    "strategy": "Rewards concrete, market-ready creative projects with a release/distribution plan, not just artistic concepts.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "creative-armenia-spark-grants",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Calouste Gulbenkian Foundation - Armenian Communities Dept Project Grants",
+    "link": "https://gulbenkian.pt/en/apoios-lista/armenian-communities-department-project-grants/",
+    "region": "Armenia",
+    "amount": "€2,000-€250,000 (no fixed min/max; 50-80 grants/year across all categories)",
+    "deadline": "Evaluated 3x/year: May, September, January",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Open to any nationality if project pertains to Armenian themes/issues; priorities include Western Armenian language, cultural creativity, research on Armenia",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Broad cultural-heritage funder, not a dedicated film fund — works best for projects tightly tied to Armenian culture/language/history.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "high",
+    "id": "calouste-gulbenkian-foundation-armenian-communities-dept-project-grants",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Calouste Gulbenkian Foundation - Western Armenian Culture Grant (\"in view\")",
+    "link": "https://gulbenkian.pt/en/apoios-lista/%D5%A1%D6%80%D5%A4-%D5%A5%D6%82%D5%BDin-view/",
+    "region": "Armenia",
+    "amount": "Not specified",
+    "deadline": "2025-26 cycle referenced; exact date unconfirmed",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Projects must center Western Armenian language/culture specifically; includes video and animation",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Narrow niche — best fit only for projects explicitly engaging Western Armenian language/culture.",
+    "themeTags": [
+      "Armenian Grant"
+    ],
+    "confidence": "low",
+    "id": "calouste-gulbenkian-foundation-western-armenian-culture-grant-in-view",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Eurasiadoc (Docmonde) - Armenian Documentary Scriptwriting Residency",
+    "link": "http://en.docmonde.org/eurasia-doc/",
+    "region": "Armenia",
+    "amount": "Free program (no cash grant; covers residency costs for selected participants)",
+    "deadline": "Annual call — check Docmonde/French Embassy in Armenia announcements",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Open to young Armenian author-filmmakers; selects 6/year for a two-week scriptwriting residency with a French trainer",
+    "previousWinners": "37 completed Armenian documentaries since 2011, 27 more in production",
+    "strategy": "Highly selective, oriented toward emerging Armenian documentary voices with strong authorial perspective.",
+    "themeTags": [
+      "Armenian Grant"
+    ],
+    "confidence": "medium",
+    "id": "eurasiadoc-docmonde-armenian-documentary-scriptwriting-residency",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "New Talents Caucasus (CinéDOC-Tbilisi / Noosfera Foundation)",
+    "link": "https://cinedoc-tbilisi.com/en/talents-caucasus",
+    "region": "Armenia",
+    "amount": "Not specified; pitching/training platform",
+    "deadline": "Annual, tied to CinéDOC-Tbilisi festival cycle",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Open to filmmakers from Georgia, Armenia, Azerbaijan; includes Summer School and Focus Caucasus pitching competition",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Regional Caucasus documentary network-building; more a pitching/training credential than a direct funding source.",
+    "themeTags": [
+      "Armenian Grant",
+      "General"
+    ],
+    "confidence": "low",
+    "id": "new-talents-caucasus-cin-doc-tbilisi-noosfera-foundation",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "name": "Creative Europe MEDIA / Creative Europe Desk Armenia",
+    "link": "https://digital-strategy.ec.europa.eu/en/policies/creative-europe-media",
+    "region": "Armenia",
+    "amount": "Varies by specific call",
+    "deadline": "Multiple calls/year via EU Funding & Tenders Portal",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Eligibility tied to specific Creative Europe MEDIA sub-programmes including Armenia as partner country",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Best approached as a co-production/development funding source rather than a dedicated Armenia-only short film grant — tangential fit.",
+    "themeTags": [
+      "General"
+    ],
+    "confidence": "low",
+    "id": "creative-europe-media-creative-europe-desk-armenia",
+    "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  }
+]
