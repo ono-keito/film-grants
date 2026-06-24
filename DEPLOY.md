@@ -1,4 +1,4 @@
-# Deploying Film Grants (free, email-gated)
+# Deploying Sphere (free, email-gated)
 
 This folder (`site/`) is a fully static app — no server to run or pay for.
 Auth and your team's data live in Supabase (free tier); hosting is GitHub Pages (free).
