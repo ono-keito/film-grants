@@ -469,13 +469,15 @@ function renderTimelineGrid() {
       const active = !w.rolling && wk >= w.start && wk <= w.end;
       const isToday = wk === cw;
       let cls = 'wk-cell';
-      if (active) {
-        cls += ' wk-active';
-        if (wk === w.start) cls += ' wk-active-start';
-        if (wk === w.end) cls += ' wk-active-end';
-      }
       if (isToday) cls += ' wk-today';
-      cells += `<td class="${cls}"></td>`;
+      let bar = '';
+      if (active) {
+        let barCls = 'wk-bar';
+        if (wk === w.start) barCls += ' wk-bar-start';
+        if (wk === w.end) barCls += ' wk-bar-end';
+        bar = `<span class="${barCls}"></span>`;
+      }
+      cells += `<td class="${cls}">${bar}</td>`;
     }
     return `
       <tr class="tl-row" data-id="${g.id}">

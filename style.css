@@ -582,6 +582,14 @@ body {
   overflow: hidden;
 }
 
+.data-table-compact td:first-child,
+.data-table-compact th:first-child,
+.data-table-compact td:last-child,
+.data-table-compact th:last-child {
+  padding: 6px 4px;
+  text-align: center;
+}
+
 .cell-wrap {
   white-space: normal;
   word-break: break-word;
@@ -1181,15 +1189,15 @@ body {
   left: 0;
   background: var(--surface);
   z-index: 2;
-  padding: 7px 12px;
-  min-width: 200px;
-  max-width: 240px;
+  padding: 7px 14px;
+  min-width: 220px;
+  max-width: 260px;
   border-right: 1px solid var(--border);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tl-name-head { background: var(--bg-secondary); z-index: 3; }
+.tl-name-head { background: var(--bg-secondary); z-index: 4; position: sticky; top: 0; }
 .tl-name-inner { display: flex; align-items: center; gap: 6px; font-size: 12px; }
 .tl-name-inner span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tl-rolling-tag {
@@ -1208,24 +1216,31 @@ body {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 .tl-month-head:nth-child(odd) { background: var(--surface); }
 .tl-row { cursor: pointer; }
 .tl-row:nth-child(even) { background: var(--bg-secondary); }
 .tl-row:hover td:not(.tl-name-cell) { background: rgba(196,113,74,0.06); }
 .tl-row:nth-child(even) .tl-name-cell { background: var(--bg-secondary); }
-.wk-cell { width: 22px; height: 34px; padding: 2px 0; }
+.wk-cell { width: 28px; height: 36px; padding: 0; position: relative; }
 .wk-cell:nth-child(13n+2) { border-left: 1px solid var(--border); }
-.wk-active {
+.wk-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
   background: var(--accent);
-  background-clip: padding-box;
-  opacity: 0.5;
-  border-radius: 0;
+  opacity: 0.8;
 }
-.wk-active-start { border-radius: 9px 0 0 9px; }
-.wk-active-end { border-radius: 0 9px 9px 0; }
-.wk-active-start.wk-active-end { border-radius: 9px; }
-.tl-row:hover .wk-active { opacity: 0.85; }
+.wk-bar-start { left: 4px; border-radius: 3px 0 0 3px; }
+.wk-bar-end { right: 4px; border-radius: 0 3px 3px 0; }
+.wk-bar-start.wk-bar-end { border-radius: 3px; }
+.tl-row:hover .wk-bar { height: 5px; opacity: 1; }
 .wk-today {
   box-shadow: inset 1.5px 0 0 var(--urgent), inset -1.5px 0 0 var(--urgent);
   background: rgba(200,55,45,0.06);
@@ -1233,18 +1248,21 @@ body {
 
 /* ── Map view ── */
 .map-strip {
-  margin: 0 24px 18px;
+  margin: 0 auto 18px;
+  max-width: 1040px;
+  width: 100%;
+  aspect-ratio: 2 / 1;
   background-color: #DCEBF5;
   background-image:
-    linear-gradient(180deg, rgba(220,235,245,0.15) 0%, rgba(234,243,230,0.15) 50%, rgba(220,235,245,0.15) 100%),
+    linear-gradient(180deg, rgba(220,235,245,0.12) 0%, rgba(234,243,230,0.12) 50%, rgba(220,235,245,0.12) 100%),
     url('https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   position: relative;
-  height: 360px;
+  height: auto;
   overflow: hidden;
 }
 .map-basemap { position: relative; width: 100%; height: 100%; }
@@ -1374,7 +1392,7 @@ body {
 
   .grant-modal { width: 92vw; max-height: 86vh; }
 
-  .map-strip { height: 220px; }
+  .map-strip { max-width: 100%; }
 
   .tl-name-cell { min-width: 150px; max-width: 170px; }
 }
