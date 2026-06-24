@@ -25,10 +25,10 @@
         </svg>
         <span>Film Grants</span>
       </div>
-      <p class="auth-subtitle" id="authSubtitle">Sign in with your email to access the grants database. You'll get a one-click link — no password needed.</p>
+      <p class="auth-subtitle" id="authSubtitle">Sign in with your email to access the grants database.</p>
       <form id="authForm" class="auth-form">
         <input type="email" id="authEmail" placeholder="you@example.com" required class="search-input">
-        <button type="submit" id="authSubmit" class="auth-submit">Send sign-in link</button>
+        <button type="submit" id="authSubmit" class="auth-submit">Sign in</button>
       </form>
       <p class="auth-status" id="authStatus"></p>
     </div>
@@ -53,17 +53,20 @@
 
       <div class="sidebar-section-label">Navigate</div>
       <nav class="project-list">
-        <button class="proj-btn nav-btn active" data-view="grants">
+        <button class="proj-btn nav-btn active" data-view="home">
+          <span class="proj-emoji">⌂</span><span class="proj-name">Home</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="mypage">
+          <span class="proj-emoji">☉</span><span class="proj-name">My Page</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="grants">
           <span class="proj-emoji">▦</span><span class="proj-name">Grants</span>
         </button>
         <button class="proj-btn nav-btn" data-view="timeline">
           <span class="proj-emoji">⟿</span><span class="proj-name">Timeline</span>
         </button>
-        <button class="proj-btn nav-btn" data-view="cards">
-          <span class="proj-emoji">▤</span><span class="proj-name">Cards</span>
-        </button>
-        <button class="proj-btn nav-btn" data-view="account">
-          <span class="proj-emoji">☉</span><span class="proj-name">My Account</span>
+        <button class="proj-btn nav-btn" data-view="map">
+          <span class="proj-emoji">⊕</span><span class="proj-name">Map</span>
         </button>
       </nav>
 
@@ -77,12 +80,64 @@
     <!-- Main -->
     <div class="main">
 
-      <!-- Grants (searchable database) view -->
-      <div class="view-pane active" id="view-grants">
+      <!-- Home view -->
+      <div class="view-pane active" id="view-home">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">Home</h1>
+            <p class="db-subtitle">Your grant search at a glance</p>
+          </div>
+        </div>
+        <div class="table-wrap" id="homeWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading…</p></div>
+        </div>
+      </div>
+
+      <!-- My Page view -->
+      <div class="view-pane" id="view-mypage">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">My Page</h1>
+            <p class="db-subtitle">Your projects, attached grants, and application status — private to you</p>
+          </div>
+        </div>
+        <div class="table-wrap" id="accountWrap">
+          <div class="account-section">
+            <div class="account-section-head">
+              <h2 class="account-section-title">Projects</h2>
+              <button class="new-project-btn" id="newProjectBtn">+ New Project</button>
+            </div>
+            <div id="projectForm" class="project-form" style="display:none;">
+              <input type="text" id="pfName" placeholder="Project name (e.g. Point Pleasant)" class="search-input">
+              <div class="project-form-row">
+                <input type="text" id="pfFormat" placeholder="Format (e.g. Short Narrative)" class="search-input">
+                <input type="text" id="pfStage" placeholder="Stage (e.g. Development)" class="search-input">
+              </div>
+              <div class="project-form-row">
+                <input type="text" id="pfLocation" placeholder="Location" class="search-input">
+              </div>
+              <textarea id="pfNotes" placeholder="Notes" class="search-input" rows="2"></textarea>
+              <div class="project-form-actions">
+                <button id="pfSave" class="auth-submit" style="width:auto;padding:8px 16px;">Save Project</button>
+                <button id="pfCancel" class="signout-btn" style="width:auto;">Cancel</button>
+              </div>
+            </div>
+            <div id="projectsList" class="projects-list"></div>
+          </div>
+
+          <div class="account-section">
+            <h2 class="account-section-title">All Favorited Grants</h2>
+            <div id="favoritesList" class="favorites-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grants view -->
+      <div class="view-pane" id="view-grants">
         <div class="db-header">
           <div>
             <h1 class="db-title">Grants</h1>
-            <p class="db-subtitle">Searchable database of curated short film grants</p>
+            <p class="db-subtitle">Click any grant for full details</p>
           </div>
           <div class="festival-controls">
             <input type="text" id="grantsSearch" placeholder="Search by name, requirement, or strategy..." class="search-input">
@@ -111,15 +166,6 @@
             <option value="Documentary">Documentary</option>
             <option value="Hybrid">Hybrid</option>
           </select>
-          <select id="grantsTheme" class="filter-select">
-            <option value="">All Themes</option>
-            <option value="Women's Story">Women's Story</option>
-            <option value="Coming of Age">Coming of Age</option>
-            <option value="Columbia/Film School">Columbia / Film School</option>
-            <option value="New Jersey">New Jersey</option>
-            <option value="Japanese Grant">Japanese Grant</option>
-            <option value="Armenian Grant">Armenian Grant</option>
-          </select>
           <label class="liked-only-toggle">
             <input type="checkbox" id="grantsLikedOnly"> ♥ Liked only
           </label>
@@ -134,7 +180,7 @@
         <div class="db-header">
           <div>
             <h1 class="db-title">Timeline</h1>
-            <p class="db-subtitle">Grants grouped by application window — see what's open now vs. closed for this cycle</p>
+            <p class="db-subtitle">All grants by week of year — scroll right to see the full calendar</p>
           </div>
         </div>
         <div class="table-wrap" id="timelineWrap">
@@ -142,99 +188,27 @@
         </div>
       </div>
 
-      <!-- Cards view -->
-      <div class="view-pane" id="view-cards">
+      <!-- Map view -->
+      <div class="view-pane" id="view-map">
         <div class="db-header">
           <div>
-            <h1 class="db-title">Curated Short Film Grants</h1>
-            <p class="db-subtitle">Region · Timeline · Project Type — focused on women's stories, coming-of-age, Columbia/MFA, Japan, Armenia, and New Jersey</p>
-          </div>
-          <div class="festival-controls">
-            <input type="text" id="curatedSearch" placeholder="Search by name, requirement, or strategy..." class="search-input">
+            <h1 class="db-title">Map</h1>
+            <p class="db-subtitle">Grants by region — click a pin to see what's there</p>
           </div>
         </div>
-        <div class="festival-filters">
-          <select id="curatedRegion" class="filter-select">
-            <option value="">All Regions</option>
-            <option value="US">US</option>
-            <option value="Europe">Europe</option>
-            <option value="Asia">Asia</option>
-            <option value="Japan">Japan</option>
-            <option value="Armenia">Armenia</option>
-          </select>
-          <select id="curatedTimeline" class="filter-select">
-            <option value="">All Deadlines</option>
-            <option value="Jan-Mar">Jan – Mar</option>
-            <option value="Apr-Jun">Apr – Jun</option>
-            <option value="Jul-Sep">Jul – Sep</option>
-            <option value="Oct-Dec">Oct – Dec</option>
-            <option value="Rolling/Annual">Rolling / Annual (TBD)</option>
-          </select>
-          <select id="curatedType" class="filter-select">
-            <option value="">All Project Types</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Hybrid">Hybrid</option>
-          </select>
-          <select id="curatedTheme" class="filter-select">
-            <option value="">All Themes</option>
-            <option value="Women's Story">Women's Story</option>
-            <option value="Coming of Age">Coming of Age</option>
-            <option value="Columbia/Film School">Columbia / Film School</option>
-            <option value="New Jersey">New Jersey</option>
-            <option value="Japanese Grant">Japanese Grant</option>
-            <option value="Armenian Grant">Armenian Grant</option>
-          </select>
-          <label class="liked-only-toggle">
-            <input type="checkbox" id="curatedLikedOnly"> ♥ Liked only
-          </label>
-        </div>
-        <div class="table-wrap" id="curatedWrap">
-          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading grants...</p></div>
-        </div>
-      </div>
-
-      <!-- Account view -->
-      <div class="view-pane" id="view-account">
-        <div class="db-header">
-          <div>
-            <h1 class="db-title">My Account</h1>
-            <p class="db-subtitle">Your projects and favorited grants — private to you, synced across devices</p>
-          </div>
-        </div>
-        <div class="table-wrap" id="accountWrap">
-          <div class="account-section">
-            <div class="account-section-head">
-              <h2 class="account-section-title">Projects</h2>
-              <button class="new-project-btn" id="newProjectBtn">+ New Project</button>
-            </div>
-            <div id="projectForm" class="project-form" style="display:none;">
-              <input type="text" id="pfName" placeholder="Project name (e.g. Point Pleasant)" class="search-input">
-              <div class="project-form-row">
-                <input type="text" id="pfFormat" placeholder="Format (e.g. Short Narrative)" class="search-input">
-                <input type="text" id="pfStage" placeholder="Stage (e.g. Development)" class="search-input">
-              </div>
-              <div class="project-form-row">
-                <input type="text" id="pfLocation" placeholder="Location" class="search-input">
-              </div>
-              <textarea id="pfNotes" placeholder="Notes" class="search-input" rows="2"></textarea>
-              <div class="project-form-actions">
-                <button id="pfSave" class="auth-submit" style="width:auto;padding:8px 16px;">Save Project</button>
-                <button id="pfCancel" class="signout-btn" style="width:auto;">Cancel</button>
-              </div>
-            </div>
-            <div id="projectsList" class="projects-list"></div>
-          </div>
-
-          <div class="account-section">
-            <h2 class="account-section-title">Favorited Grants</h2>
-            <div id="favoritesList" class="favorites-list"></div>
-          </div>
+        <div class="table-wrap" id="mapWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading map...</p></div>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- Grant detail modal -->
+  <div class="grant-modal-overlay" id="grantModalOverlay">
+    <div class="grant-modal" id="grantModalContent"></div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

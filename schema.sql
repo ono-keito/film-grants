@@ -42,6 +42,7 @@ create table if not exists favorites (
   grant_name text not null,
   project_id uuid references projects(id) on delete set null,
   note text,
+  status text default 'Not Started',
   created_at timestamptz default now(),
   unique (user_id, grant_id)
 );
@@ -51,3 +52,8 @@ alter table favorites enable row level security;
 create policy "Users manage their own favorites"
   on favorites for all
   using (true);  -- RLS check done in app (email must be in allowed_emails)
+
+-- ── Migration: add status tracking to existing favorites ────────────────
+-- If you already ran this schema before the "status" column existed,
+-- just run this one line in SQL Editor (safe to re-run, no-op if it exists):
+alter table favorites add column if not exists status text default 'Not Started';
