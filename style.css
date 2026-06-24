@@ -4,6 +4,7 @@
 /* ── Tokens ── */
 :root {
   --bg:           #F7F5F0;
+  --bg-secondary: #EFECE6;
   --surface:      #FFFFFF;
   --sidebar-bg:   #EFECE6;
   --border:       #E3DDD5;
@@ -539,19 +540,19 @@ body {
 }
 
 .data-table thead {
-  background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .data-table th {
   padding: 1rem;
   text-align: left;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-2);
   white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-secondary);
 }
 
 .data-table td {
@@ -1167,14 +1168,20 @@ body {
 .grant-row { cursor: pointer; }
 
 /* ── Timeline grid ── */
-.tl-grid-scroll { overflow-x: auto; padding: 0 24px 24px; }
-.tl-grid { border-collapse: collapse; font-size: 11px; }
+.tl-grid-scroll {
+  overflow-x: auto;
+  margin: 0 24px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.tl-grid { border-collapse: collapse; font-size: 11px; width: 100%; }
 .tl-name-cell {
   position: sticky;
   left: 0;
-  background: var(--bg);
+  background: var(--surface);
   z-index: 2;
-  padding: 4px 10px;
+  padding: 7px 12px;
   min-width: 200px;
   max-width: 240px;
   border-right: 1px solid var(--border);
@@ -1182,7 +1189,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tl-name-head { background: var(--bg); z-index: 3; }
+.tl-name-head { background: var(--bg-secondary); z-index: 3; }
 .tl-name-inner { display: flex; align-items: center; gap: 6px; font-size: 12px; }
 .tl-name-inner span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tl-rolling-tag {
@@ -1194,20 +1201,35 @@ body {
   flex-shrink: 0;
 }
 .tl-month-head {
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
   color: var(--text-2);
-  padding: 4px 0;
+  padding: 7px 0;
+  background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
-  border-left: 1px solid var(--border-light);
   text-align: center;
 }
+.tl-month-head:nth-child(odd) { background: var(--surface); }
 .tl-row { cursor: pointer; }
-.tl-row:hover td:not(.tl-name-cell) { background: rgba(0,0,0,0.03); }
-.wk-cell { width: 22px; height: 36px; border-left: 1px solid var(--border-light); padding: 0; }
-.wk-active { background: var(--accent); opacity: 0.55; }
-.tl-row:hover .wk-active { opacity: 0.8; }
-.wk-today { box-shadow: inset 1px 0 0 var(--urgent), inset -1px 0 0 var(--urgent); }
+.tl-row:nth-child(even) { background: var(--bg-secondary); }
+.tl-row:hover td:not(.tl-name-cell) { background: rgba(196,113,74,0.06); }
+.tl-row:nth-child(even) .tl-name-cell { background: var(--bg-secondary); }
+.wk-cell { width: 22px; height: 34px; padding: 2px 0; }
+.wk-cell:nth-child(13n+2) { border-left: 1px solid var(--border); }
+.wk-active {
+  background: var(--accent);
+  background-clip: padding-box;
+  opacity: 0.5;
+  border-radius: 0;
+}
+.wk-active-start { border-radius: 9px 0 0 9px; }
+.wk-active-end { border-radius: 0 9px 9px 0; }
+.wk-active-start.wk-active-end { border-radius: 9px; }
+.tl-row:hover .wk-active { opacity: 0.85; }
+.wk-today {
+  box-shadow: inset 1.5px 0 0 var(--urgent), inset -1.5px 0 0 var(--urgent);
+  background: rgba(200,55,45,0.06);
+}
 
 /* ── Map view ── */
 .map-strip {
@@ -1215,7 +1237,7 @@ body {
   background-color: #DCEBF5;
   background-image:
     linear-gradient(180deg, rgba(220,235,245,0.15) 0%, rgba(234,243,230,0.15) 50%, rgba(220,235,245,0.15) 100%),
-    url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Equirectangular_projection_SW.jpg');
+    url('https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
