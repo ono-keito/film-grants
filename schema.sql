@@ -12,9 +12,9 @@ create table if not exists allowed_emails (
 
 alter table allowed_emails enable row level security;
 
-create policy "Authenticated users can check the allowlist"
+create policy "Anyone can check the allowlist"
   on allowed_emails for select
-  using (auth.role() = 'authenticated');
+  using (true);
 
 -- ── Projects ───────────────────────────────────────────────────────────
 create table if not exists projects (
