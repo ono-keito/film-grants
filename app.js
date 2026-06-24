@@ -83,24 +83,34 @@ function currentWeek() {
 }
 
 /* ── Boot ── */
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   if (!window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
     console.error('Supabase config not loaded. Check supabase-config.js');
     return;
   }
   sbClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
-  checkSavedLogin();
-});
 
-function checkSavedLogin() {
-  const saved = localStorage.getItem('filmGrantsEmail');
-  if (saved) {
-    currentUserEmail = saved;
+  sbClient.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session?.user?.email) {
+      currentUserEmail = session.user.email;
+      showApp();
+    } else if (event === 'SIGNED_OUT') {
+      currentUserEmail = null;
+      document.getElementById('appRoot').style.display = 'none';
+      document.getElementById('authGate').style.display = 'flex';
+      document.getElementById('authEmail').value = '';
+      document.getElementById('authStatus').textContent = '';
+    }
+  });
+
+  const { data: { session } } = await sbClient.auth.getSession();
+  if (session?.user?.email) {
+    currentUserEmail = session.user.email;
     showApp();
   } else {
     document.getElementById('authGate').style.display = 'flex';
   }
-}
+});
 
 async function onSignIn() {
   const email = document.getElementById('authEmail').value.trim();
@@ -133,10 +143,15 @@ async function onSignIn() {
       return;
     }
 
-    currentUserEmail = email;
-    localStorage.setItem('filmGrantsEmail', email);
-    document.getElementById('authEmail').value = '';
-    showApp();
+    const { error: otpError } = await sbClient.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: window.location.origin + window.location.pathname }
+    });
+    if (otpError) throw otpError;
+
+    status.textContent = `Check ${email} for a sign-in link — click it to finish signing in.`;
+    status.className = 'auth-status success';
+    btn.disabled = false;
   } catch (err) {
     status.textContent = `Error: ${err.message}`;
     status.className = 'auth-status error';
@@ -159,12 +174,7 @@ document.getElementById('authForm').addEventListener('submit', (e) => {
 });
 
 document.getElementById('signOutBtn').addEventListener('click', () => {
-  localStorage.removeItem('filmGrantsEmail');
-  currentUserEmail = null;
-  document.getElementById('appRoot').style.display = 'none';
-  document.getElementById('authGate').style.display = 'flex';
-  document.getElementById('authEmail').value = '';
-  document.getElementById('authStatus').textContent = '';
+  sbClient.auth.signOut();
 });
 
 /* ── Data loading ── */

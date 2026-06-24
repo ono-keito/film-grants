@@ -11,8 +11,14 @@ Auth and your team's data live in Supabase (free tier); hosting is GitHub Pages 
    [`schema.sql`](schema.sql) → **Run**. This creates the `allowed_emails`,
    `projects`, and `favorites` tables with row-level security already locked down.
 4. **Authentication → Providers → Email**: make sure "Email" is enabled
-   (it is by default). Magic-link sign-in needs no extra setup.
-5. **Settings → API**: copy the **Project URL** and the **anon public key**.
+   (it is by default).
+5. **Authentication → URL Configuration**: set **Site URL** to your GitHub
+   Pages URL (e.g. `https://<your-username>.github.io/film-grants/`), and
+   add the same URL under **Redirect URLs**. This is required — without it,
+   the magic-link email will redirect people to the wrong place (often
+   `localhost`) and sign-in will silently fail. If you don't know the exact
+   URL yet, come back and set this after step 4 below.
+6. **Settings → API**: copy the **Project URL** and the **anon public key**.
 
 ## 2. Add yourself (and collaborators) to the allowlist
 
