@@ -5,6 +5,7 @@ let currentUserEmail = null;
 let likedIds = new Set();
 let favoritesById = new Map();
 let projects = [];
+let projectGrants = [];
 let mapFilterRegion = null;
 
 const TODAY = new Date();
@@ -16,6 +17,14 @@ const REGION_COORDS = {
   Asia: { lat: 34.0, lon: 100.6 },
   Japan: { lat: 36.2, lon: 138.3 },
   Armenia: { lat: 40.1, lon: 45.0 },
+  'South Korea': { lat: 36.5, lon: 127.8 },
+  Canada: { lat: 56.1, lon: -106.3 },
+  Mexico: { lat: 23.6, lon: -102.5 },
+  Colombia: { lat: 4.6, lon: -74.3 },
+  'Hong Kong': { lat: 22.3, lon: 114.2 },
+  Taiwan: { lat: 23.7, lon: 121.0 },
+  France: { lat: 46.6, lon: 2.2 },
+  UK: { lat: 55.0, lon: -3.4 },
 };
 
 function currentQuarter() {
@@ -135,13 +144,11 @@ async function onSignIn() {
   }
 }
 
-function showApp() {
+async function showApp() {
   document.getElementById('authGate').style.display = 'none';
   document.getElementById('appRoot').style.display = 'flex';
   document.getElementById('sidebarUser').textContent = currentUserEmail;
-  loadGrants();
-  loadFavorites();
-  loadProjects();
+  await Promise.all([loadGrants(), loadFavorites(), loadProjects(), loadProjectGrants()]);
   renderAll();
 }
 
@@ -163,7 +170,6 @@ document.getElementById('signOutBtn').addEventListener('click', () => {
 /* ── Data loading ── */
 async function loadGrants() {
   allGrants = await fetch('grants-data.json').then(r => r.json());
-  renderAll();
 }
 
 async function loadFavorites() {
@@ -211,27 +217,33 @@ async function toggleLike(grant) {
   renderAll();
 }
 
-async function addGrantToProject(projectId, grant) {
-  if (likedIds.has(grant.id)) {
-    const row = favoritesById.get(grant.id);
-    await sbClient.from('favorites').update({ project_id: projectId }).eq('id', row.id);
-  } else {
-    const { data, error } = await sbClient
-      .from('favorites')
-      .insert({ user_id: currentUserEmail, grant_id: grant.id, grant_name: grant.name, project_id: projectId })
-      .select()
-      .single();
-    if (error) { console.error(error); return; }
-    favoritesById.set(grant.id, data);
-    likedIds.add(grant.id);
-  }
-  await loadFavorites();
-  renderAll();
+async function loadProjectGrants() {
+  const { data, error } = await sbClient
+    .from('project_grants')
+    .select('*')
+    .eq('user_id', currentUserEmail);
+  if (error) { console.error(error); return; }
+  projectGrants = data || [];
 }
 
-async function updateFavoriteStatus(favId, status) {
-  await sbClient.from('favorites').update({ status }).eq('id', favId);
-  await loadFavorites();
+async function addGrantToProject(projectId, grant) {
+  const { error } = await sbClient
+    .from('project_grants')
+    .insert({ user_id: currentUserEmail, project_id: projectId, grant_id: grant.id, grant_name: grant.name });
+  if (error) { console.error(error); return; }
+  await loadProjectGrants();
+  renderAccount();
+}
+
+async function removeGrantFromProject(rowId) {
+  await sbClient.from('project_grants').delete().eq('id', rowId);
+  await loadProjectGrants();
+  renderAccount();
+}
+
+async function updateProjectGrantStatus(rowId, status) {
+  await sbClient.from('project_grants').update({ status }).eq('id', rowId);
+  await loadProjectGrants();
   renderAccount();
 }
 
@@ -349,22 +361,23 @@ function renderGrantsTable() {
 
   wrap.innerHTML = `
     <div class="curated-count">${rows.length} of ${allGrants.length} grants</div>
-    <table class="data-table">
+    <table class="data-table data-table-compact">
+      <colgroup>
+        <col style="width:32px"><col><col style="width:130px"><col style="width:170px"><col style="width:32px">
+      </colgroup>
       <thead><tr>
-        <th></th><th>Grant</th><th>Region</th><th>Type</th><th>Stage</th>
-        <th>Amount</th><th>Deadline</th><th>Fee</th><th></th>
+        <th></th><th>Grant</th><th>Amount</th><th>Deadline</th><th></th>
       </tr></thead>
       <tbody>
         ${rows.map(g => `
           <tr class="grant-row" data-id="${g.id}">
             <td>${likeBtnHtml(g.id)}</td>
-            <td><div class="font-weight-500">${esc(g.name)}</div></td>
-            <td><span class="tag">${esc(g.region)}</span></td>
-            <td style="font-size:12px">${esc((g.projectType||[]).join(', '))}</td>
-            <td style="font-size:12px">${esc((g.fundingStage||[]).join(', '))}</td>
-            <td style="white-space:nowrap;font-size:12.5px">${esc(g.amount)}</td>
-            <td style="font-size:12px;max-width:200px">${esc(g.deadline)}</td>
-            <td style="font-size:11.5px;color:var(--text-2);max-width:160px">${esc(g.applicationFee)}</td>
+            <td>
+              <div class="font-weight-500">${esc(g.name)}</div>
+              <div class="cell-meta">${esc(g.region)} · ${esc((g.projectType||[]).join(', '))}</div>
+            </td>
+            <td class="cell-wrap" style="font-size:12.5px">${esc(g.amount)}</td>
+            <td class="cell-wrap" style="font-size:12px" title="${esc(g.deadline)}">${esc(g.deadline)}</td>
             <td><a href="${g.link}" target="_blank" rel="noopener" class="link-icon" onclick="event.stopPropagation()">↗</a></td>
           </tr>
         `).join('')}
@@ -441,7 +454,15 @@ function renderTimelineGrid() {
     return { name, span: Math.max(1, e - s + 1) };
   });
 
-  const rows = allGrants.map(g => {
+  const sorted = [...allGrants].sort((a, b) => {
+    const wa = parseDeadlineWeeks(a);
+    const wb = parseDeadlineWeeks(b);
+    const keyA = wa.rolling ? 999 : wa.start;
+    const keyB = wb.rolling ? 999 : wb.start;
+    return keyA - keyB;
+  });
+
+  const rows = sorted.map(g => {
     const w = parseDeadlineWeeks(g);
     let cells = '';
     for (let wk = 1; wk <= 52; wk++) {
@@ -559,7 +580,7 @@ function renderAccount() {
   const projWrap = document.getElementById('projectsList');
   projWrap.innerHTML = projects.length
     ? projects.map(p => {
-        const attached = [...favoritesById.values()].filter(f => f.project_id === p.id);
+        const attached = projectGrants.filter(pg => pg.project_id === p.id);
         const expanded = expandedProjectId === p.id;
         return `
         <div class="project-item-block">
@@ -575,19 +596,19 @@ function renderAccount() {
           </div>
           ${expanded ? `
             <div class="project-detail">
-              ${attached.map(f => {
-                const grant = allGrants.find(g => g.id === f.grant_id);
+              ${attached.map(pg => {
+                const grant = allGrants.find(g => g.id === pg.grant_id);
                 return `
                   <div class="favorite-item">
                     <div>
-                      <div class="favorite-item-name">${esc(f.grant_name)}</div>
+                      <div class="favorite-item-name">${esc(pg.grant_name)}</div>
                       <div class="favorite-item-meta">${grant ? esc(grant.region + ' · ' + grant.amount) : ''}</div>
                     </div>
                     <div style="display:flex;align-items:center;gap:8px;">
-                      <select class="status-select" data-fav-id="${f.id}">
-                        ${STATUS_OPTIONS.map(s => `<option value="${s}" ${f.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+                      <select class="status-select" data-row-id="${pg.id}">
+                        ${STATUS_OPTIONS.map(s => `<option value="${s}" ${pg.status === s ? 'selected' : ''}>${s}</option>`).join('')}
                       </select>
-                      <button class="remove-btn" data-grant-id="${f.grant_id}" title="Remove from project">✕</button>
+                      <button class="remove-btn" data-row-id="${pg.id}" title="Remove from project">✕</button>
                     </div>
                   </div>
                 `;
@@ -614,20 +635,17 @@ function renderAccount() {
     btn.addEventListener('click', async () => {
       await sbClient.from('projects').delete().eq('id', btn.dataset.projectId);
       await loadProjects();
-      await loadFavorites();
+      await loadProjectGrants();
       renderAll();
     });
   });
 
-  projWrap.querySelectorAll('.remove-btn[data-grant-id]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const grant = allGrants.find(g => g.id === btn.dataset.grantId);
-      if (grant) await toggleLike(grant);
-    });
+  projWrap.querySelectorAll('.remove-btn[data-row-id]').forEach(btn => {
+    btn.addEventListener('click', () => removeGrantFromProject(btn.dataset.rowId));
   });
 
   projWrap.querySelectorAll('.status-select').forEach(sel => {
-    sel.addEventListener('change', () => updateFavoriteStatus(sel.dataset.favId, sel.value));
+    sel.addEventListener('change', () => updateProjectGrantStatus(sel.dataset.rowId, sel.value));
   });
 
   projWrap.querySelectorAll('.add-grant-search').forEach(input => {
@@ -636,7 +654,8 @@ function renderAccount() {
       const term = input.value.trim().toLowerCase();
       const resultsEl = projWrap.querySelector(`.add-grant-results[data-project-id="${projectId}"]`);
       if (!term) { resultsEl.innerHTML = ''; return; }
-      const matches = allGrants.filter(g => g.name.toLowerCase().includes(term)).slice(0, 6);
+      const alreadyIn = new Set(projectGrants.filter(pg => pg.project_id === projectId).map(pg => pg.grant_id));
+      const matches = allGrants.filter(g => g.name.toLowerCase().includes(term) && !alreadyIn.has(g.id)).slice(0, 6);
       resultsEl.innerHTML = matches.map(g => `
         <button class="add-grant-result-btn" data-project-id="${projectId}" data-grant-id="${g.id}">${esc(g.name)}</button>
       `).join('') || '<div class="timeline-empty">No matches</div>';
@@ -656,16 +675,17 @@ function renderAccount() {
   favWrap.innerHTML = favs.length
     ? favs.map(f => {
         const grant = allGrants.find(g => g.id === f.grant_id);
+        const inProjects = projects.filter(p => projectGrants.some(pg => pg.project_id === p.id && pg.grant_id === f.grant_id));
         return `
           <div class="favorite-item">
             <div>
               <div class="favorite-item-name">${esc(f.grant_name)}</div>
-              <div class="favorite-item-meta">${grant ? esc(grant.region + ' · ' + grant.amount) : ''} · ${esc(f.status || 'Not Started')}</div>
+              <div class="favorite-item-meta">${grant ? esc(grant.region + ' · ' + grant.amount) : ''}${inProjects.length ? ' · In: ' + inProjects.map(p => esc(p.name)).join(', ') : ''}</div>
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
-              <select class="fav-project-select" data-fav-id="${f.id}">
-                <option value="">No project</option>
-                ${projects.map(p => `<option value="${p.id}" ${f.project_id === p.id ? 'selected' : ''}>${esc(p.name)}</option>`).join('')}
+              <select class="fav-add-project-select" data-grant-id="${f.grant_id}" data-grant-name="${esc(f.grant_name)}">
+                <option value="">+ Add to project…</option>
+                ${projects.filter(p => !inProjects.some(ip => ip.id === p.id)).map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('')}
               </select>
               <button class="remove-btn" data-grant-id="${f.grant_id}" title="Remove favorite">✕</button>
             </div>
@@ -674,11 +694,11 @@ function renderAccount() {
       }).join('')
     : '<p style="font-size:12.5px;color:var(--text-3)">No favorites yet — click ♡ on any grant to save it here.</p>';
 
-  favWrap.querySelectorAll('.fav-project-select').forEach(sel => {
+  favWrap.querySelectorAll('.fav-add-project-select').forEach(sel => {
     sel.addEventListener('change', async () => {
-      await sbClient.from('favorites').update({ project_id: sel.value || null }).eq('id', sel.dataset.favId);
-      await loadFavorites();
-      renderAccount();
+      if (!sel.value) return;
+      const grant = allGrants.find(g => g.id === sel.dataset.grantId);
+      if (grant) await addGrantToProject(sel.value, grant);
     });
   });
 

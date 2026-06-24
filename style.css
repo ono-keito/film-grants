@@ -572,6 +572,26 @@ body {
   font-weight: 500;
 }
 
+.data-table-compact {
+  table-layout: fixed;
+}
+
+.data-table-compact td,
+.data-table-compact th {
+  overflow: hidden;
+}
+
+.cell-wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.cell-meta {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-3, var(--text-secondary));
+}
+
 .tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -1184,7 +1204,7 @@ body {
 }
 .tl-row { cursor: pointer; }
 .tl-row:hover td:not(.tl-name-cell) { background: rgba(0,0,0,0.03); }
-.wk-cell { width: 13px; height: 28px; border-left: 1px solid var(--border-light); padding: 0; }
+.wk-cell { width: 22px; height: 36px; border-left: 1px solid var(--border-light); padding: 0; }
 .wk-active { background: var(--accent); opacity: 0.55; }
 .tl-row:hover .wk-active { opacity: 0.8; }
 .wk-today { box-shadow: inset 1px 0 0 var(--urgent), inset -1px 0 0 var(--urgent); }
@@ -1192,11 +1212,17 @@ body {
 /* ── Map view ── */
 .map-strip {
   margin: 0 24px 18px;
-  background: linear-gradient(180deg, #DCEBF5 0%, #EAF3E6 50%, #DCEBF5 100%);
+  background-color: #DCEBF5;
+  background-image:
+    linear-gradient(180deg, rgba(220,235,245,0.15) 0%, rgba(234,243,230,0.15) 50%, rgba(220,235,245,0.15) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Equirectangular_projection_SW.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   position: relative;
-  height: 260px;
+  height: 360px;
   overflow: hidden;
 }
 .map-basemap { position: relative; width: 100%; height: 100%; }
@@ -1273,3 +1299,65 @@ body {
   font-family: var(--font);
 }
 .add-grant-result-btn:hover { background: var(--accent-bg); }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .app { flex-direction: column; height: auto; min-height: 100vh; }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-top { border-bottom: none; padding: 10px 12px; flex-shrink: 0; }
+
+  .sidebar-section-label { display: none; }
+
+  .project-list {
+    flex: 1;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 6px 8px;
+  }
+
+  .proj-btn { width: auto; white-space: nowrap; }
+  .proj-name { white-space: nowrap; }
+
+  .sidebar-bottom {
+    flex-shrink: 0;
+    border-top: none;
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .sidebar-meta, .sidebar-user { display: none; }
+
+  .db-header { flex-direction: column; align-items: stretch; gap: 10px; }
+
+  .festival-filters { flex-wrap: wrap; }
+  .filter-select, .search-input { min-width: 0; flex: 1 1 140px; }
+
+  .home-stats { grid-template-columns: 1fr 1fr; }
+
+  .data-table-compact col:nth-child(3),
+  .data-table-compact col:nth-child(4) { width: auto; }
+
+  .grant-modal { width: 92vw; max-height: 86vh; }
+
+  .map-strip { height: 220px; }
+
+  .tl-name-cell { min-width: 150px; max-width: 170px; }
+}
+
+@media (max-width: 480px) {
+  .home-stats { grid-template-columns: 1fr; }
+  .wk-cell { width: 16px; }
+}

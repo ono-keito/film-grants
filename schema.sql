@@ -57,3 +57,23 @@ create policy "Users manage their own favorites"
 -- If you already ran this schema before the "status" column existed,
 -- just run this one line in SQL Editor (safe to re-run, no-op if it exists):
 alter table favorites add column if not exists status text default 'Not Started';
+
+-- ── Project ↔ Grant links (many-to-many) ─────────────────────────────────
+-- A grant can belong to multiple projects, tracked independently of
+-- "liked" status. Run this once (safe to re-run, no-op if it exists).
+create table if not exists project_grants (
+  id uuid primary key default gen_random_uuid(),
+  user_id text not null,
+  project_id uuid references projects(id) on delete cascade not null,
+  grant_id text not null,
+  grant_name text not null,
+  status text default 'Not Started',
+  created_at timestamptz default now(),
+  unique (project_id, grant_id)
+);
+
+alter table project_grants enable row level security;
+
+create policy "Users manage their own project grants"
+  on project_grants for all
+  using (true);  -- RLS check done in app (email must be in allowed_emails)

@@ -1921,5 +1921,385 @@
     "confidence": "low",
     "id": "creative-europe-media-creative-europe-desk-armenia",
     "applicationFee": "Not specified — many of these are free to apply; verify on official page"
+  },
+  {
+    "id": "acf-script-development-fund",
+    "name": "Asian Cinema Fund – Script Development Fund (Busan International Film Festival)",
+    "link": "https://acf.biff.kr/eng/",
+    "region": "South Korea",
+    "amount": "10,000,000 KRW (approx. $7,500 USD)",
+    "deadline": "Annual; 2026 window was 23 March – 13 April 2026, 23:59 KST. Results announced early June.",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Development"
+    ],
+    "requirements": "Open to Asian nationality writer-directors or writer-director teams (Korean nationals NOT eligible for the general Asian Project category) developing their first or second feature-length fiction script, with at least one prior short or feature credit. Project must contain distinct Asian elements.",
+    "previousWinners": "Not publicly listed for 2026 cohort at time of research; ACF publishes annual selections on its site.",
+    "strategy": "Best suited to non-Korean Asian filmmakers; emphasize distinct Asian thematic/cultural elements and a clear path to a feature, and highlight any AFA/BAFA alumni status if applicable.",
+    "themeTags": [
+      "Asian cinema",
+      "first/second feature",
+      "script development"
+    ],
+    "confidence": "high",
+    "applicationFee": "Not specified on official guidelines page"
+  },
+  {
+    "id": "asian-short-film-fund-haf",
+    "name": "Asian Short Film Fund (Hong Kong-Asia Film Financing Forum / HKIFF Industry)",
+    "link": "https://industry.hkiff.org.hk/asff",
+    "region": "Hong Kong",
+    "amount": "Up to $35,000 USD per selected project (3 projects selected)",
+    "deadline": "Annual call; 2026 cycle open 10 April – 5 June 2026. Online pitch in early August; results later in August.",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Applicant must be copyright holder of the proposal (director plus producer/executive producer). Short film must run 5–20 minutes. Open broadly to filmmakers submitting via the official HAF/HKIFF Industry portal.",
+    "previousWinners": "Not extracted in this research; past selections listed on industry.hkiff.org.hk archive pages.",
+    "strategy": "Submit a tight, well-produced pitch deck with a strong visual sample reel if available; frame the short as festival-ready since winners premiere at HKIFF.",
+    "themeTags": [
+      "pan-Asian",
+      "mentorship",
+      "festival premiere"
+    ],
+    "confidence": "high",
+    "applicationFee": "Not confirmed — check submission page on official site before applying"
+  },
+  {
+    "id": "cj-cultural-foundation-story-up",
+    "name": "CJ Cultural Foundation – STORY UP (Short Film Production Support)",
+    "link": "https://www.cjazit.org/eng/support/story-up",
+    "region": "South Korea",
+    "amount": "Planning grant: 1,000,000 KRW (12 directors); Production grant: 20,000,000 KRW (6 finalists)",
+    "deadline": "Annual; 2026 cycle closed March 23, 2026 (short film production category).",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Open to emerging/early-career Korean filmmakers; both original scripts and existing portfolios eligible. Two-stage selection: 12 directors get planning grants, 6 finalists get production grants plus mentor pairing.",
+    "previousWinners": "215 total grantees since 2010; specific 2026 names not published in sources reviewed.",
+    "strategy": "Tailor the application to the announced annual theme and submit a polished existing portfolio piece alongside the new script.",
+    "themeTags": [
+      "emerging filmmakers",
+      "mentorship",
+      "annual theme"
+    ],
+    "confidence": "medium",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "hkadc-project-grant-film-media",
+    "name": "Hong Kong Arts Development Council – Project Grant (Film and Media Arts)",
+    "link": "https://www.hkadc.org.hk/en/grants-and-scholarship/grants/project-grant",
+    "region": "Hong Kong",
+    "amount": "Up to HK$700,000 maximum per project (individual short film projects typically receive far less)",
+    "deadline": "Twice yearly: applications due 30 June and 31 December annually.",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Individual applicants must hold a Hong Kong identity card and be 18+; non-profit arts organizations registered in Hong Kong may also apply.",
+    "previousWinners": "Not publicly listed in a consolidated form.",
+    "strategy": "Apply with a clearly scoped, modestly budgeted short-film project; demonstrate community/cultural relevance to Hong Kong.",
+    "themeTags": [
+      "Hong Kong residents",
+      "general arts development"
+    ],
+    "confidence": "medium",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "hk-first-feature-film-initiative",
+    "name": "First Feature Film Initiative (FFFI) — Create Hong Kong",
+    "link": "https://www.fdc.gov.hk/en/applications_detail.php?id=2022042210252142851",
+    "region": "Hong Kong",
+    "amount": "Up to HK$5,000,000 (Higher Education Institutions Group) or HK$8,000,000 (Professional Group)",
+    "deadline": "Biennial/periodic open calls; 9th FFFI opened September 15, 2025.",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Director(s) must be Hong Kong permanent residents, 18+, who have not previously directed a commercial film 80+ minutes long. Higher Education Institutions Group targets film-school graduates within 10 years.",
+    "previousWinners": "8th FFFI winners announced November 2024.",
+    "strategy": "Best suited to MFA students who are HK permanent residents nearing graduation with a strong feature screenplay; check eligibility timing against graduation date.",
+    "themeTags": [
+      "debut feature",
+      "Hong Kong permanent residents",
+      "competition"
+    ],
+    "confidence": "high",
+    "applicationFee": "Not specified; see official guidelines PDF"
+  },
+  {
+    "id": "taicca-international-co-funding-program",
+    "name": "Taiwan Creative Content Agency (TAICCA) – Taiwan International Co-funding Program (TICP)",
+    "link": "https://ticp.taicca.tw/en/",
+    "region": "Taiwan",
+    "amount": "Up to NT$30,000,000 for feature-length films (up to 30% of Taiwan-incurred expenses)",
+    "deadline": "Annual open calls; specific 2026 dates not independently confirmed — check official TICP site for current window.",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Designed for international co-productions with a Taiwanese co-producing partner; primarily oriented toward feature-length projects, limited fit for standalone short films.",
+    "previousWinners": "Not independently verified in this research.",
+    "strategy": "Only relevant if the project is feature-length or structured as a co-production with a Taiwanese producer; confirm current-cycle deadlines directly on TAICCA's site.",
+    "themeTags": [
+      "co-production",
+      "international financing"
+    ],
+    "confidence": "low",
+    "applicationFee": "Not confirmed"
+  },
+  {
+    "id": "focine-cortometraje-mexico",
+    "name": "FOCINE 2026 - Apoyo a la Producción de Cortometrajes (Fomento al Cine Mexicano)",
+    "link": "https://focine.imcine.gob.mx/focine/cortometraje/",
+    "region": "Mexico",
+    "amount": "Up to $750,000 MXN per project; up to 80% of total project budget",
+    "deadline": "Annual; 2026 registration Jan 2 – Jan 30, 2026 15:00 (Mexico City time); results by April 30, 2026",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Mexican citizens (born in Mexico or permanent residency) or Mexican legal entities. Project must be a short film ready for preproduction/production. One project per applicant per cycle.",
+    "previousWinners": "Not publicly listed in an easily citable form.",
+    "strategy": "Apply through the zone matching your legal residence; priority given to projects directed by women, Indigenous/Afro-Mexican directors, and Indigenous-language projects.",
+    "themeTags": [
+      "Regional/decentralization",
+      "Indigenous and Afro-Mexican filmmakers",
+      "Gender equity"
+    ],
+    "confidence": "high",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "sodec-creation-emergente-development",
+    "name": "SODEC Aide à la création émergente - Développement (Quebec, Canada)",
+    "link": "https://sodec.gouv.qc.ca/domaines-dintervention/cinema-et-television/aide-financiere/creation-emergente/",
+    "region": "Canada",
+    "amount": "Up to $15,000 CAD (development stage, short film); production stage up to $115,000 CAD cumulative",
+    "deadline": "Development: annual intake April 6 – May 6, 2026. Production: rolling intake March 2 – December 15, 2026.",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production"
+    ],
+    "requirements": "Applicant must have Quebec fiscal residence for at least 2 years prior; must be an 'emerging' creator who has not yet produced/written/directed a feature with recognized distribution.",
+    "previousWinners": "SODEC periodically announces cohorts on its newsroom page.",
+    "strategy": "MFA-friendly track for first-time/emerging Quebec-based filmmakers — establish Quebec fiscal residency 2+ years before applying.",
+    "themeTags": [
+      "Emerging filmmakers",
+      "Quebec"
+    ],
+    "confidence": "high",
+    "applicationFee": "$57.49 CAD (incl. tax) for shorts/documentaries"
+  },
+  {
+    "id": "canada-council-explore-create-artistic-creation",
+    "name": "Canada Council for the Arts - Explore and Create: Artistic Creation Grant (Media Arts)",
+    "link": "https://canadacouncil.ca/funding/grants/explore-and-create",
+    "region": "Canada",
+    "amount": "Up to $75,000 CAD per application (max $150,000 CAD/calendar year)",
+    "deadline": "Rolling — any time before project start date; decisions typically within 5 months",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Development",
+      "Production",
+      "Post-Production"
+    ],
+    "requirements": "Canadian citizens or permanent residents; must qualify as a 'professional artist' applying in the Media Arts discipline. Open to individuals, groups, and collectives.",
+    "previousWinners": "Annual results published in Explore and Create Funding Results reports.",
+    "strategy": "Frame the application around artistic merit and professional trajectory; build a portfolio of public screenings/festival selections to qualify as a 'professional artist.'",
+    "themeTags": [
+      "Media arts",
+      "Individual artists"
+    ],
+    "confidence": "medium",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "fdc-produccion-cortometraje-colombia",
+    "name": "FDC Producción de Cortometraje (Fondo para el Desarrollo Cinematográfico, Proimágenes Colombia)",
+    "link": "https://www.convocatoriafdc.com/reglas",
+    "region": "Colombia",
+    "amount": "Not publicly specified on pages reviewed - confirm current-cycle amount at convocatoriafdc.com",
+    "deadline": "Part of annual FDC convocatoria; specific open/close dates not confirmed on pages reviewed",
+    "timeline": "Rolling/Annual",
+    "projectType": [
+      "Fiction",
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Open only to Colombian natural persons and Colombian legal entities. Short film category: minimum 7 minutes, maximum 69 minutes.",
+    "previousWinners": "Not publicly listed in the sources reviewed",
+    "strategy": "Only relevant for MFA filmmakers with Colombian citizenship or a Colombian production company partner. Contact Proimágenes Colombia directly to confirm current terms.",
+    "themeTags": [
+      "Colombian national cinema"
+    ],
+    "confidence": "low",
+    "applicationFee": "Not specified - confirm with Proimágenes Colombia"
+  },
+  {
+    "id": "bfi-network-england-shorts",
+    "name": "BFI NETWORK England Short Film Fund",
+    "link": "https://www.bfi.org.uk/get-funding-support/bfi-network/bfi-network-england-short-film-funding",
+    "region": "UK",
+    "amount": "£5,000-£25,000",
+    "deadline": "Annual, opens winter, closed 18 March 2026 at 11am; next round expected spring 2027",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Early career filmmakers (director, writer, producer); director must be based in England; fictional shortform up to 15 minutes; reasonable proportion of early-career cast and crew.",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Apply with a tight, original, entirely fictional concept under 15 minutes and pair with a producer as lead applicant.",
+    "themeTags": [],
+    "confidence": "high",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "bfi-doc-society-made-of-truth",
+    "name": "BFI Doc Society Fund: Made of Truth (Short Documentary)",
+    "link": "https://bfi.docsociety.org/funds/made-of-truth/",
+    "region": "UK",
+    "amount": "Up to £25,000",
+    "deadline": "Annual; 2026 round opens 18 May 1pm, closes 1 July 2026 1pm",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Documentary"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Both director and producer must be UK residents; early-career non-fiction filmmakers; film must be 5-40 minutes, live action or animation, non-fiction.",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Lead with director-driven, expansive non-fiction storytelling; apply as a director-producer pair.",
+    "themeTags": [
+      "Documentary"
+    ],
+    "confidence": "high",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "beacons-short-film-wales",
+    "name": "Beacons: Short Film Funding (Ffilm Cymru Wales / BFI NETWORK)",
+    "link": "https://ffilmcymruwales.com/funding-and-training/beacons-short-film-funding",
+    "region": "UK",
+    "amount": "Up to £25,000",
+    "deadline": "Annual; 2026 round closed 12 June 2026 at midday",
+    "timeline": "Apr-Jun",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Production"
+    ],
+    "requirements": "Director must be born in Wales and/or based in Wales; must not have already directed a feature with commercial distribution; max 15 minutes.",
+    "previousWinners": "Not publicly listed",
+    "strategy": "Strongest fit for filmmakers with a genuine Wales connection; show festival-oriented craft ambition.",
+    "themeTags": [],
+    "confidence": "medium",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "la-cinef-cannes",
+    "name": "La Cinef (formerly Cinéfondation) - Festival de Cannes Student Film Selection",
+    "link": "https://www.festival-cannes.com/en/take-part/submit-a-film/la-cinef-rules-and-regulations/",
+    "region": "France",
+    "amount": "€15,000 (1st prize), €11,000 (2nd prize), €7,500 (3rd prize)",
+    "deadline": "Annual; submission deadline mid-to-late February",
+    "timeline": "Jan-Mar",
+    "projectType": [
+      "Fiction"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Film school fiction or animation shorts/medium-length (up to 60 min), completed within 18 months before the festival, not previously shown at major international festivals. Open to film schools worldwide.",
+    "previousWinners": "Selection list published annually on festival-cannes.com",
+    "strategy": "This is a selection/prize for already-completed MFA thesis films — submit your strongest school-produced short once finished, with festival premiere status still intact.",
+    "themeTags": [
+      "Student Film"
+    ],
+    "confidence": "high",
+    "applicationFee": "Free"
+  },
+  {
+    "id": "iledefrance-aide-apres-realisation",
+    "name": "Région Île-de-France - Aide après réalisation Cinéma (Post-Production Aid)",
+    "link": "https://www.iledefrance.fr/aides-et-appels-a-projets/aide-apres-realisation-cinema",
+    "region": "France",
+    "amount": "Not specified (selective subsidy)",
+    "deadline": "Multiple annual sessions; next session opens 29 July 2026, 9am-5pm",
+    "timeline": "Jul-Sep",
+    "projectType": [
+      "Fiction",
+      "Documentary",
+      "Hybrid"
+    ],
+    "fundingStage": [
+      "Post-Production"
+    ],
+    "requirements": "Applicant must be a registered production company; post-production work must take place in Île-de-France. Both feature and short films eligible.",
+    "previousWinners": "Examples include short films such as 'La Fin des Rois' and 'Le Cygne'",
+    "strategy": "Would typically need a French production company partner to apply; align post-production spend with Île-de-France-based vendors.",
+    "themeTags": [],
+    "confidence": "medium",
+    "applicationFee": "Free"
   }
 ]
