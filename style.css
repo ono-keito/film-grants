@@ -980,6 +980,18 @@ body {
 .auth-status.error { color: var(--urgent); }
 .auth-status.success { color: #065F46; }
 
+.auth-switch, .auth-forgot {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.auth-switch a, .auth-forgot a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.auth-switch a:hover, .auth-forgot a:hover { text-decoration: underline; }
+
 /* ── Sidebar user/sign-out ── */
 .sidebar-user {
   font-size: 11px;

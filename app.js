@@ -2,6 +2,7 @@
 let sbClient;
 let allGrants = [];
 let currentUserEmail = null;
+let authMode = 'signin'; // 'signin' | 'signup'
 let likedIds = new Set();
 let favoritesById = new Map();
 let projects = [];
@@ -99,7 +100,10 @@ window.addEventListener('load', async () => {
       document.getElementById('appRoot').style.display = 'none';
       document.getElementById('authGate').style.display = 'flex';
       document.getElementById('authEmail').value = '';
+      document.getElementById('authPassword').value = '';
+      document.getElementById('authPasswordConfirm').value = '';
       document.getElementById('authStatus').textContent = '';
+      setAuthMode('signin');
     }
   });
 
@@ -114,49 +118,113 @@ window.addEventListener('load', async () => {
 
 async function onSignIn() {
   const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
   const btn = document.getElementById('authSubmit');
   const status = document.getElementById('authStatus');
 
-  if (!email) {
-    status.textContent = 'Please enter an email.';
+  if (!email || !password) {
+    status.textContent = 'Please enter your email and password.';
     status.className = 'auth-status error';
     return;
   }
 
-  btn.disabled = true;
-  status.className = 'auth-status';
-  status.textContent = 'Checking access...';
-
-  try {
-    const { data: allowed, error } = await sbClient
-      .from('allowed_emails')
-      .select('email')
-      .eq('email', email)
-      .maybeSingle();
-
-    if (error) throw error;
-
-    if (!allowed) {
-      status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
+  if (authMode === 'signup') {
+    const confirm = document.getElementById('authPasswordConfirm').value;
+    if (password.length < 8) {
+      status.textContent = 'Password must be at least 8 characters.';
       status.className = 'auth-status error';
-      btn.disabled = false;
       return;
     }
+    if (password !== confirm) {
+      status.textContent = 'Passwords do not match.';
+      status.className = 'auth-status error';
+      return;
+    }
+  }
 
-    const { error: otpError } = await sbClient.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: window.location.origin + window.location.pathname }
-    });
-    if (otpError) throw otpError;
+  btn.disabled = true;
+  status.className = 'auth-status';
+  status.textContent = authMode === 'signup' ? 'Checking access...' : 'Signing in...';
 
-    status.textContent = `Check ${email} for a sign-in link — click it to finish signing in.`;
-    status.className = 'auth-status success';
-    btn.disabled = false;
+  try {
+    if (authMode === 'signup') {
+      const { data: allowed, error } = await sbClient
+        .from('allowed_emails')
+        .select('email')
+        .eq('email', email)
+        .maybeSingle();
+
+      if (error) throw error;
+
+      if (!allowed) {
+        status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
+        status.className = 'auth-status error';
+        btn.disabled = false;
+        return;
+      }
+
+      const { data, error: signUpError } = await sbClient.auth.signUp({ email, password });
+      if (signUpError) throw signUpError;
+
+      if (data.session) {
+        // Email confirmation is disabled in Supabase — session starts immediately.
+        currentUserEmail = data.user.email;
+        showApp();
+        return;
+      }
+
+      status.textContent = `Account created. Check ${email} to confirm your address, then sign in.`;
+      status.className = 'auth-status success';
+      setAuthMode('signin');
+      btn.disabled = false;
+    } else {
+      const { error: signInError } = await sbClient.auth.signInWithPassword({ email, password });
+      if (signInError) throw signInError;
+      // onAuthStateChange handles showApp() once the session lands.
+    }
   } catch (err) {
     status.textContent = `Error: ${err.message}`;
     status.className = 'auth-status error';
     btn.disabled = false;
   }
+}
+
+async function onForgotPassword() {
+  const email = document.getElementById('authEmail').value.trim();
+  const status = document.getElementById('authStatus');
+
+  if (!email) {
+    status.textContent = 'Enter your email above first, then click "Forgot password?".';
+    status.className = 'auth-status error';
+    return;
+  }
+
+  try {
+    const { error } = await sbClient.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + window.location.pathname
+    });
+    if (error) throw error;
+    status.textContent = `Password reset link sent to ${email}.`;
+    status.className = 'auth-status success';
+  } catch (err) {
+    status.textContent = `Error: ${err.message}`;
+    status.className = 'auth-status error';
+  }
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const isSignup = mode === 'signup';
+  document.getElementById('authSubtitle').textContent = isSignup
+    ? 'Create an account with your email and a password.'
+    : 'Sign in with your email and password.';
+  document.getElementById('authSubmit').textContent = isSignup ? 'Create account' : 'Sign in';
+  document.getElementById('authPasswordConfirm').style.display = isSignup ? 'block' : 'none';
+  document.getElementById('authPasswordConfirm').required = isSignup;
+  document.getElementById('authSwitchToSignup').style.display = isSignup ? 'none' : 'inline';
+  document.getElementById('authSwitchToSignin').style.display = isSignup ? 'inline' : 'none';
+  document.getElementById('authForgotLink').parentElement.style.display = isSignup ? 'none' : 'block';
+  document.getElementById('authStatus').textContent = '';
 }
 
 async function showApp() {
@@ -171,6 +239,21 @@ async function showApp() {
 document.getElementById('authForm').addEventListener('submit', (e) => {
   e.preventDefault();
   onSignIn();
+});
+
+document.getElementById('authSwitchToSignupLink').addEventListener('click', (e) => {
+  e.preventDefault();
+  setAuthMode('signup');
+});
+
+document.getElementById('authSwitchToSigninLink').addEventListener('click', (e) => {
+  e.preventDefault();
+  setAuthMode('signin');
+});
+
+document.getElementById('authForgotLink').addEventListener('click', (e) => {
+  e.preventDefault();
+  onForgotPassword();
 });
 
 document.getElementById('signOutBtn').addEventListener('click', () => {

@@ -11,13 +11,17 @@ Auth and your team's data live in Supabase (free tier); hosting is GitHub Pages 
    [`schema.sql`](schema.sql) → **Run**. This creates the `allowed_emails`,
    `projects`, and `favorites` tables with row-level security already locked down.
 4. **Authentication → Providers → Email**: make sure "Email" is enabled
-   (it is by default).
+   (it is by default). If you'd like new accounts to be usable immediately
+   after signup (no confirmation email step), turn **"Confirm email" off**
+   here — otherwise each new person must click a link in their inbox once
+   before their first sign-in works.
 5. **Authentication → URL Configuration**: set **Site URL** to your GitHub
    Pages URL (e.g. `https://<your-username>.github.io/film-grants/`), and
-   add the same URL under **Redirect URLs**. This is required — without it,
-   the magic-link email will redirect people to the wrong place (often
-   `localhost`) and sign-in will silently fail. If you don't know the exact
-   URL yet, come back and set this after step 4 below.
+   add the same URL under **Redirect URLs**. This matters for the
+   "Forgot password?" email link and (if you kept it on) the signup
+   confirmation email — without it, those links redirect to the wrong
+   place (often `localhost`). If you don't know the exact URL yet, come
+   back and set this after step 4 below.
 6. **Settings → API**: copy the **Project URL** and the **anon public key**.
 
 ## 2. Add yourself (and collaborators) to the allowlist
@@ -62,10 +66,11 @@ main, folder: / (root) → Save**. After a minute or two, your app is live at
 
 ## 5. Share it
 
-Send collaborators the URL. They'll see the sign-in screen, enter their email,
-click the magic link sent to their inbox, and land in the app — but only if
-their email is in `allowed_emails` (step 2). Anyone else gets bounced with a
-clear message.
+Send collaborators the URL. They'll see the sign-in screen and click
+"Create an account" — but only emails already in `allowed_emails` (step 2)
+can actually sign up; anyone else gets a clean "not authorized" message.
+Once signed up, they set a password and use it to sign in from then on
+(with a "Forgot password?" link if they lose it).
 
 ## Updating the grant data later
 
