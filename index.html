@@ -27,6 +27,10 @@
       </div>
       <p class="auth-subtitle" id="authSubtitle">Sign in with your email and password.</p>
       <form id="authForm" class="auth-form">
+        <div class="auth-name-row" id="authNameRow" style="display:none;">
+          <input type="text" id="authFirstName" placeholder="First name" class="search-input" autocomplete="given-name">
+          <input type="text" id="authLastName" placeholder="Last name" class="search-input" autocomplete="family-name">
+        </div>
         <input type="email" id="authEmail" placeholder="you@example.com" required class="search-input" autocomplete="email">
         <input type="password" id="authPassword" placeholder="Password" required class="search-input" autocomplete="current-password" minlength="8">
         <input type="password" id="authPasswordConfirm" placeholder="Confirm password" class="search-input" autocomplete="new-password" minlength="8" style="display:none;">
@@ -34,10 +38,27 @@
       </form>
       <p class="auth-status" id="authStatus"></p>
       <p class="auth-switch">
-        <span id="authSwitchToSignup">New here? <a href="#" id="authSwitchToSignupLink">Create an account</a></span>
+        <span id="authSwitchToSignup">New here? <a href="#" id="authSwitchToSignupLink">Apply for access</a></span>
         <span id="authSwitchToSignin" style="display:none;">Already have an account? <a href="#" id="authSwitchToSigninLink">Sign in</a></span>
       </p>
       <p class="auth-forgot"><a href="#" id="authForgotLink">Forgot password?</a></p>
+    </div>
+  </div>
+
+  <!-- Waitlist gate: shown to signed-in users who aren't approved yet -->
+  <div class="auth-gate" id="waitlistGate" style="display:none;">
+    <div class="auth-card">
+      <div class="wordmark" style="justify-content:center;margin-bottom:18px;">
+        <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
+          <rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.9"/>
+          <rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+          <rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/>
+          <rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.3"/>
+        </svg>
+        <span>Sphere</span>
+      </div>
+      <p class="auth-subtitle">You're on the waitlist. Your account is still being reviewed — we'll let you know as soon as you're approved.</p>
+      <button class="signout-btn" id="waitlistSignOutBtn" style="width:100%;">Sign out</button>
     </div>
   </div>
 
@@ -74,6 +95,9 @@
         </button>
         <button class="proj-btn nav-btn" data-view="map">
           <span class="proj-emoji">⊕</span><span class="proj-name">Map</span>
+        </button>
+        <button class="proj-btn nav-btn" data-view="applications" id="applicationsNavBtn" style="display:none;">
+          <span class="proj-emoji">✓</span><span class="proj-name">Applications</span>
         </button>
       </nav>
 
@@ -213,6 +237,19 @@
         </div>
         <div class="table-wrap" id="mapWrap">
           <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading map...</p></div>
+        </div>
+      </div>
+
+      <!-- Applications view (admin only) -->
+      <div class="view-pane" id="view-applications">
+        <div class="db-header">
+          <div>
+            <h1 class="db-title">Applications</h1>
+            <p class="db-subtitle">Review access requests — approved applicants can sign in immediately</p>
+          </div>
+        </div>
+        <div class="table-wrap" id="applicationsWrap">
+          <div class="empty-state"><div class="empty-icon">⏳</div><p>Loading applications...</p></div>
         </div>
       </div>
 

@@ -8,8 +8,9 @@ Auth and your team's data live in Supabase (free tier); hosting is GitHub Pages 
 1. Go to https://supabase.com → sign up free → "New project."
 2. Pick any name/region, set a database password (you won't need it day-to-day).
 3. Once it's created: **SQL Editor** → "New query" → paste the entire contents of
-   [`schema.sql`](schema.sql) → **Run**. This creates the `allowed_emails`,
-   `projects`, and `favorites` tables with row-level security already locked down.
+   [`schema.sql`](schema.sql) → **Run**. This creates `access_requests`,
+   `projects`, and `favorites` (plus a legacy unused `allowed_emails` table)
+   with row-level security already locked down.
 4. **Authentication → Providers → Email**: make sure "Email" is enabled
    (it is by default). If you'd like new accounts to be usable immediately
    after signup (no confirmation email step), turn **"Confirm email" off**
@@ -24,12 +25,22 @@ Auth and your team's data live in Supabase (free tier); hosting is GitHub Pages 
    back and set this after step 4 below.
 6. **Settings → API**: copy the **Project URL** and the **anon public key**.
 
-## 2. Add yourself (and collaborators) to the allowlist
+## 2. Make yourself the first admin
 
-In Supabase: **Table Editor → allowed_emails → Insert row** → paste an email →
-Save. Repeat for every person who should have access. You can add or remove
-people here any time — no redeploy needed. Anyone not on this list who tries
-to sign in gets a clean "not authorized" message and no access to any data.
+Anyone can now apply for access from the sign-in screen — there's no
+pre-seeded allowlist to manage anymore. Instead:
+
+1. Deploy the app (steps 3-4 below), then open it and click "Apply for
+   access" using your own name/email/password. This creates your account
+   and a `pending` row in `access_requests`.
+2. Back in Supabase: **SQL Editor** → run this one line (with your email):
+   ```sql
+   update access_requests set status = 'approved', is_admin = true, reviewed_at = now()
+   where email = 'you@example.com';
+   ```
+3. Sign in — you'll now see an **Applications** tab in the sidebar (visible
+   only to admins) where you can approve or reject everyone else who
+   applies. No further SQL needed after this one-time bootstrap.
 
 ## 3. Fill in your config
 
@@ -66,11 +77,13 @@ main, folder: / (root) → Save**. After a minute or two, your app is live at
 
 ## 5. Share it
 
-Send collaborators the URL. They'll see the sign-in screen and click
-"Create an account" — but only emails already in `allowed_emails` (step 2)
-can actually sign up; anyone else gets a clean "not authorized" message.
-Once signed up, they set a password and use it to sign in from then on
-(with a "Forgot password?" link if they lose it).
+Send collaborators the URL. They'll see the sign-in screen, click "Apply
+for access," and fill in their name/email/password — this creates their
+account but doesn't grant access. You'll need to open the **Applications**
+tab yourself (sign in as the admin from step 2) and click **Approve**.
+Until then, they see a friendly "you're on the waitlist" screen instead
+of the app. No emails are sent automatically — check the Applications
+tab periodically, or ask people to let you know when they've applied.
 
 ## Updating the grant data later
 

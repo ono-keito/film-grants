@@ -3,6 +3,7 @@ let sbClient;
 let allGrants = [];
 let currentUserEmail = null;
 let authMode = 'signin'; // 'signin' | 'signup'
+let isAdmin = false;
 let likedIds = new Set();
 let favoritesById = new Map();
 let projects = [];
@@ -93,15 +94,18 @@ window.addEventListener('load', async () => {
 
   sbClient.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_IN' && session?.user?.email) {
-      currentUserEmail = session.user.email;
-      showApp();
+      handleSignedIn(session.user.email);
     } else if (event === 'SIGNED_OUT') {
       currentUserEmail = null;
+      isAdmin = false;
       document.getElementById('appRoot').style.display = 'none';
+      document.getElementById('waitlistGate').style.display = 'none';
       document.getElementById('authGate').style.display = 'flex';
       document.getElementById('authEmail').value = '';
       document.getElementById('authPassword').value = '';
       document.getElementById('authPasswordConfirm').value = '';
+      document.getElementById('authFirstName').value = '';
+      document.getElementById('authLastName').value = '';
       document.getElementById('authStatus').textContent = '';
       setAuthMode('signin');
     }
@@ -109,12 +113,43 @@ window.addEventListener('load', async () => {
 
   const { data: { session } } = await sbClient.auth.getSession();
   if (session?.user?.email) {
-    currentUserEmail = session.user.email;
-    showApp();
+    handleSignedIn(session.user.email);
   } else {
     document.getElementById('authGate').style.display = 'flex';
   }
 });
+
+/* Runs on every successful sign-in (fresh sign-in or a restored session).
+   Signing in never directly grants app access — it only grants access to
+   check the applicant's own access_requests row (RLS: "Users can view
+   their own application"). Only an 'approved' row unlocks the app. */
+async function handleSignedIn(email) {
+  currentUserEmail = email;
+
+  const { data: req, error } = await sbClient
+    .from('access_requests')
+    .select('*')
+    .eq('email', email)
+    .maybeSingle();
+
+  if (error || !req) {
+    console.error('Could not load access request', error);
+    await sbClient.auth.signOut();
+    return;
+  }
+
+  if (req.status !== 'approved') {
+    isAdmin = false;
+    document.getElementById('authGate').style.display = 'none';
+    document.getElementById('appRoot').style.display = 'none';
+    document.getElementById('waitlistGate').style.display = 'flex';
+    return;
+  }
+
+  isAdmin = !!req.is_admin;
+  document.getElementById('waitlistGate').style.display = 'none';
+  showApp();
+}
 
 async function onSignIn() {
   const email = document.getElementById('authEmail').value.trim();
@@ -129,7 +164,14 @@ async function onSignIn() {
   }
 
   if (authMode === 'signup') {
+    const firstName = document.getElementById('authFirstName').value.trim();
+    const lastName = document.getElementById('authLastName').value.trim();
     const confirm = document.getElementById('authPasswordConfirm').value;
+    if (!firstName || !lastName) {
+      status.textContent = 'Please enter your first and last name.';
+      status.className = 'auth-status error';
+      return;
+    }
     if (password.length < 8) {
       status.textContent = 'Password must be at least 8 characters.';
       status.className = 'auth-status error';
@@ -144,51 +186,39 @@ async function onSignIn() {
 
   btn.disabled = true;
   status.className = 'auth-status';
-  status.textContent = authMode === 'signup' ? 'Checking access...' : 'Signing in...';
+  status.textContent = authMode === 'signup' ? 'Submitting your application...' : 'Signing in...';
 
   try {
     if (authMode === 'signup') {
-      const { data: allowed, error } = await sbClient
-        .from('allowed_emails')
-        .select('email')
-        .eq('email', email)
-        .maybeSingle();
-
-      if (error) throw error;
-
-      if (!allowed) {
-        status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
-        status.className = 'auth-status error';
-        btn.disabled = false;
-        return;
-      }
+      const firstName = document.getElementById('authFirstName').value.trim();
+      const lastName = document.getElementById('authLastName').value.trim();
 
       const { data, error: signUpError } = await sbClient.auth.signUp({ email, password });
       if (signUpError) throw signUpError;
 
-      if (data.session) {
-        // Email confirmation is disabled in Supabase — session starts immediately.
-        currentUserEmail = data.user.email;
-        showApp();
-        return;
-      }
+      const { error: reqError } = await sbClient
+        .from('access_requests')
+        .insert({ email, first_name: firstName, last_name: lastName });
 
-      status.textContent = `Account created. Check ${email} to confirm your address, then sign in.`;
+      if (reqError && reqError.code !== '23505') throw reqError; // 23505 = unique_violation (already applied)
+
+      // Never leave someone signed into an active session before they're
+      // approved — sign out immediately regardless of whether Supabase
+      // handed back a session (it will, since email confirmation is off).
+      if (data.session) await sbClient.auth.signOut();
+
+      status.textContent = `Application submitted! We'll let you know once ${email} is approved.`;
       status.className = 'auth-status success';
       setAuthMode('signin');
       btn.disabled = false;
     } else {
       const { error: signInError } = await sbClient.auth.signInWithPassword({ email, password });
       if (signInError) throw signInError;
-      // onAuthStateChange handles showApp() once the session lands.
+      // onAuthStateChange -> handleSignedIn() takes it from here.
     }
   } catch (err) {
-    // The database-level allowlist trigger (schema.sql) rejects signup for
-    // any email not in allowed_emails, even if the client-side check above
-    // was somehow bypassed. Its error surfaces here as a generic Postgres
-    // "Database error saving new user" — show the real reason instead.
-    if (/database error saving new user/i.test(err.message)) {
-      status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
+    if (/user already registered/i.test(err.message)) {
+      status.textContent = `${email} already has an account. Try signing in, or use "Forgot password?" below.`;
     } else {
       status.textContent = `Error: ${err.message}`;
     }
@@ -224,9 +254,12 @@ function setAuthMode(mode) {
   authMode = mode;
   const isSignup = mode === 'signup';
   document.getElementById('authSubtitle').textContent = isSignup
-    ? 'Create an account with your email and a password.'
+    ? 'Apply for access with your name, email, and a password.'
     : 'Sign in with your email and password.';
-  document.getElementById('authSubmit').textContent = isSignup ? 'Create account' : 'Sign in';
+  document.getElementById('authSubmit').textContent = isSignup ? 'Apply for access' : 'Sign in';
+  document.getElementById('authNameRow').style.display = isSignup ? 'flex' : 'none';
+  document.getElementById('authFirstName').required = isSignup;
+  document.getElementById('authLastName').required = isSignup;
   document.getElementById('authPasswordConfirm').style.display = isSignup ? 'block' : 'none';
   document.getElementById('authPasswordConfirm').required = isSignup;
   document.getElementById('authSwitchToSignup').style.display = isSignup ? 'none' : 'inline';
@@ -237,9 +270,12 @@ function setAuthMode(mode) {
 
 async function showApp() {
   document.getElementById('authGate').style.display = 'none';
+  document.getElementById('waitlistGate').style.display = 'none';
   document.getElementById('appRoot').style.display = 'flex';
   document.getElementById('sidebarUser').textContent = currentUserEmail;
+  document.getElementById('applicationsNavBtn').style.display = isAdmin ? 'flex' : 'none';
   await Promise.all([loadGrants(), loadFavorites(), loadProjects(), loadProjectGrants()]);
+  if (isAdmin) await loadApplications();
   renderAll();
 }
 
@@ -265,6 +301,10 @@ document.getElementById('authForgotLink').addEventListener('click', (e) => {
 });
 
 document.getElementById('signOutBtn').addEventListener('click', () => {
+  sbClient.auth.signOut();
+});
+
+document.getElementById('waitlistSignOutBtn').addEventListener('click', () => {
   sbClient.auth.signOut();
 });
 
@@ -392,6 +432,76 @@ function renderAll() {
   renderTimelineGrid();
   renderMap();
   renderAccount();
+  if (isAdmin) renderApplications();
+}
+
+/* ── Applications (admin only) ── */
+let applications = [];
+
+async function loadApplications() {
+  const { data, error } = await sbClient
+    .from('access_requests')
+    .select('*')
+    .order('created_at', { ascending: false });
+  if (error) { console.error(error); return; }
+  applications = data || [];
+}
+
+function renderApplications() {
+  const wrap = document.getElementById('applicationsWrap');
+  if (!applications.length) {
+    wrap.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>No applications yet.</p></div>';
+    return;
+  }
+
+  const pending = applications.filter(a => a.status === 'pending');
+  const reviewed = applications.filter(a => a.status !== 'pending');
+
+  const rowHtml = (a, showActions) => `
+    <div class="application-row">
+      <div class="application-info">
+        <div class="application-name">${esc(a.first_name)} ${esc(a.last_name)} ${a.is_admin ? '<span class="tag tag-light">admin</span>' : ''}</div>
+        <div class="application-meta">${esc(a.email)} · applied ${new Date(a.created_at).toLocaleDateString()}</div>
+      </div>
+      ${showActions
+        ? `<div class="application-actions">
+             <button class="app-approve-btn" data-id="${a.id}">Approve</button>
+             <button class="app-reject-btn" data-id="${a.id}">Reject</button>
+           </div>`
+        : `<div class="application-status status-${a.status}">${a.status}</div>`
+      }
+    </div>
+  `;
+
+  wrap.innerHTML = `
+    ${pending.length ? `
+      <div class="account-section">
+        <h2 class="account-section-title">Pending (${pending.length})</h2>
+        ${pending.map(a => rowHtml(a, true)).join('')}
+      </div>
+    ` : '<div class="empty-state"><div class="empty-icon">✅</div><p>No pending applications.</p></div>'}
+    ${reviewed.length ? `
+      <div class="account-section">
+        <h2 class="account-section-title">Reviewed</h2>
+        ${reviewed.map(a => rowHtml(a, false)).join('')}
+      </div>
+    ` : ''}
+  `;
+
+  wrap.querySelectorAll('.app-approve-btn').forEach(btn =>
+    btn.addEventListener('click', () => reviewApplication(btn.dataset.id, 'approved')));
+  wrap.querySelectorAll('.app-reject-btn').forEach(btn =>
+    btn.addEventListener('click', () => reviewApplication(btn.dataset.id, 'rejected')));
+}
+
+async function reviewApplication(id, status) {
+  const { error } = await sbClient
+    .from('access_requests')
+    .update({ status, reviewed_at: new Date().toISOString() })
+    .eq('id', id);
+  if (error) { console.error(error); return; }
+  await loadApplications();
+  renderApplications();
 }
 
 /* ── Home dashboard ── */

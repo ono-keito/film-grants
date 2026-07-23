@@ -78,26 +78,99 @@ create policy "Users manage their own project grants"
   on project_grants for all
   using (true);  -- RLS check done in app (email must be in allowed_emails)
 
--- ── Enforce allowlist at signup, server-side ─────────────────────────────
--- The app checks allowed_emails before calling signUp() for a nice error
--- message, but that check happens in client-side JS and is skippable by
--- anyone calling the Supabase Auth API directly with the public anon key.
--- This trigger is the real gate: it runs inside Postgres on every new
--- auth.users row and blocks the signup outright if the email isn't on the
--- allowlist, so it can't be bypassed from outside. Run this once (safe to
--- re-run — it replaces the function/trigger if they already exist).
-create or replace function public.enforce_email_allowlist()
-returns trigger as $$
-begin
-  if not exists (select 1 from public.allowed_emails where email = new.email) then
-    raise exception 'not_authorized: % is not on the allowlist', new.email;
-  end if;
-  return new;
-end;
-$$ language plpgsql security definer set search_path = public;
-
+-- ── Superseded: allowlist-gated signup ───────────────────────────────────
+-- Earlier versions of this schema blocked signUp() at the database level
+-- for any email not pre-added to `allowed_emails`. That's replaced below
+-- by an apply-then-approve workflow: anyone can create an account, but
+-- app access (see the tightened policies further down) requires an
+-- approved row in `access_requests`. Drop the old trigger so signup
+-- itself is no longer blocked — it's safe to run even if it was never
+-- created. The old `allowed_emails` table is left in place, unused.
 drop trigger if exists enforce_allowlist_before_signup on auth.users;
+drop function if exists public.enforce_email_allowlist();
 
-create trigger enforce_allowlist_before_signup
-  before insert on auth.users
-  for each row execute function public.enforce_email_allowlist();
+-- ── Access requests (apply → review → approve/reject) ────────────────────
+-- Signing up IS applying: the app calls signUp() then inserts a row here
+-- with status='pending'. Nobody gets into the app (see tightened policies
+-- below) until an admin flips their row to 'approved' from the
+-- Applications view. 'rejected' and 'pending' both just show the user a
+-- friendly "you're on the waitlist" screen — no harsh rejection message.
+create table if not exists access_requests (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  first_name text not null,
+  last_name text not null,
+  status text not null default 'pending', -- 'pending' | 'approved' | 'rejected'
+  is_admin boolean not null default false,
+  created_at timestamptz default now(),
+  reviewed_at timestamptz
+);
+
+alter table access_requests enable row level security;
+
+drop policy if exists "Anyone can submit their own application" on access_requests;
+create policy "Anyone can submit their own application"
+  on access_requests for insert
+  with check (true);
+
+drop policy if exists "Users can view their own application" on access_requests;
+create policy "Users can view their own application"
+  on access_requests for select
+  using (email = auth.jwt() ->> 'email');
+
+drop policy if exists "Admins can view all applications" on access_requests;
+create policy "Admins can view all applications"
+  on access_requests for select
+  using (
+    exists (
+      select 1 from access_requests admin_row
+      where admin_row.email = auth.jwt() ->> 'email'
+        and admin_row.is_admin = true
+        and admin_row.status = 'approved'
+    )
+  );
+
+drop policy if exists "Admins can update applications" on access_requests;
+create policy "Admins can update applications"
+  on access_requests for update
+  using (
+    exists (
+      select 1 from access_requests admin_row
+      where admin_row.email = auth.jwt() ->> 'email'
+        and admin_row.is_admin = true
+        and admin_row.status = 'approved'
+    )
+  );
+
+-- ── Bootstrap the first admin ─────────────────────────────────────────────
+-- Sign up through the app once with your own email/password (this creates
+-- your 'pending' row above), then run this one line in the SQL Editor,
+-- replacing the email, to approve yourself and mark yourself admin:
+--
+--   update access_requests set status = 'approved', is_admin = true, reviewed_at = now()
+--   where email = 'you@example.com';
+
+-- ── Tighten data access to approved users only ────────────────────────────
+-- Previously these policies were `using (true)` for any signed-in user —
+-- fine when signup itself was gated, but now that anyone can create an
+-- account (to apply), app data must require an approved application too.
+drop policy if exists "Users manage their own projects" on projects;
+create policy "Approved users manage their own projects"
+  on projects for all
+  using (
+    exists (select 1 from access_requests where email = auth.jwt() ->> 'email' and status = 'approved')
+  );
+
+drop policy if exists "Users manage their own favorites" on favorites;
+create policy "Approved users manage their own favorites"
+  on favorites for all
+  using (
+    exists (select 1 from access_requests where email = auth.jwt() ->> 'email' and status = 'approved')
+  );
+
+drop policy if exists "Users manage their own project grants" on project_grants;
+create policy "Approved users manage their own project grants"
+  on project_grants for all
+  using (
+    exists (select 1 from access_requests where email = auth.jwt() ->> 'email' and status = 'approved')
+  );
