@@ -77,3 +77,27 @@ alter table project_grants enable row level security;
 create policy "Users manage their own project grants"
   on project_grants for all
   using (true);  -- RLS check done in app (email must be in allowed_emails)
+
+-- ── Enforce allowlist at signup, server-side ─────────────────────────────
+-- The app checks allowed_emails before calling signUp() for a nice error
+-- message, but that check happens in client-side JS and is skippable by
+-- anyone calling the Supabase Auth API directly with the public anon key.
+-- This trigger is the real gate: it runs inside Postgres on every new
+-- auth.users row and blocks the signup outright if the email isn't on the
+-- allowlist, so it can't be bypassed from outside. Run this once (safe to
+-- re-run — it replaces the function/trigger if they already exist).
+create or replace function public.enforce_email_allowlist()
+returns trigger as $$
+begin
+  if not exists (select 1 from public.allowed_emails where email = new.email) then
+    raise exception 'not_authorized: % is not on the allowlist', new.email;
+  end if;
+  return new;
+end;
+$$ language plpgsql security definer set search_path = public;
+
+drop trigger if exists enforce_allowlist_before_signup on auth.users;
+
+create trigger enforce_allowlist_before_signup
+  before insert on auth.users
+  for each row execute function public.enforce_email_allowlist();

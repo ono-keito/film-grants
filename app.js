@@ -183,7 +183,15 @@ async function onSignIn() {
       // onAuthStateChange handles showApp() once the session lands.
     }
   } catch (err) {
-    status.textContent = `Error: ${err.message}`;
+    // The database-level allowlist trigger (schema.sql) rejects signup for
+    // any email not in allowed_emails, even if the client-side check above
+    // was somehow bypassed. Its error surfaces here as a generic Postgres
+    // "Database error saving new user" — show the real reason instead.
+    if (/database error saving new user/i.test(err.message)) {
+      status.textContent = `${email} is not on the access list. Contact the admin to be added.`;
+    } else {
+      status.textContent = `Error: ${err.message}`;
+    }
     status.className = 'auth-status error';
     btn.disabled = false;
   }
